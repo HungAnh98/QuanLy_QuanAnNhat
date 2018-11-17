@@ -15,5 +15,19 @@ namespace DAO
         {
             return GetDataSet("Ban").Tables[0];
         }
+        public void CapNhatTinhTrangBan(Ban ban, DataTable dataTable)
+        {
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                if (dr["MaBan"].ToString() == ban.MaBan.ToString())
+                {
+                    dr.SetField("TinhTrang", ban.TinhTrang);
+                }
+            }
+        }
+        public void SaveBan(DataTable dataTable)
+        {
+            Save(dataTable, "Ban");
+        }
     }
 }

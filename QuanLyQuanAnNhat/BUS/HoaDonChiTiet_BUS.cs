@@ -50,5 +50,10 @@ namespace BUS
                 throw ex;
             }
         }
+        public void ThemHoaDonChiTiet(HoaDonChiTiet hoaDonChiTiet, DataTable dataTable)
+        {
+            HoaDonChiTiet_DAO hoaDonChiTiet_DAO = new HoaDonChiTiet_DAO();
+            hoaDonChiTiet_DAO.ThemHoaDonChiTiet(hoaDonChiTiet, dataTable);
+        }
     }
 }

@@ -7,19 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 using BUS;
+using DTO;
 namespace QuanLyQuanAnNhat
 {
     public partial class Form_Order : Form
     {
-        public Form_Order()
-        {
-            InitializeComponent();
-        }
-        
-        
+            
         HoaDon_BUS hdBus = new HoaDon_BUS();
         Ban_BUS banBus = new Ban_BUS();
         HoaDonChiTiet_BUS hdctBus = new HoaDonChiTiet_BUS();
@@ -27,19 +22,30 @@ namespace QuanLyQuanAnNhat
 
         DataTable TableHoaDon = new HoaDon_BUS().GetThongTinHoaDon();
         DataTable TableHoaDonChiTiet = new HoaDonChiTiet_BUS().GetThongTinHoaDonChiTiet();
-        DataTable daTable;
-        DataRow daRow;
+        DataTable TableBan = new Ban_BUS().GetTableBan();
+        DataTable daTableMenu;
+
+        HoaDon E_hoaDon;
+        HoaDonChiTiet E_hoaDonChiTiet;
+        Ban E_Ban;
+
 
         int soBan = 0;
         int hoaDon = -1;
         int Tong;
         bool tinhTrangBan;
+        bool alow = false;
 
+
+        public Form_Order()
+        {
+            InitializeComponent();
+        }
         private void Form_Order_Load(object sender, EventArgs e)
         {
 
-            daTable = spBus.GetThongTinMenu();
-            foreach (DataRow row in daTable.Rows)
+            daTableMenu = spBus.GetThongTinMenu();
+            foreach (DataRow row in daTableMenu.Rows)
             {
                 ListViewItem item = new ListViewItem(row["Ten"].ToString());
                 item.SubItems.Add(row["DonVi"].ToString());
@@ -102,28 +108,25 @@ namespace QuanLyQuanAnNhat
             soBan = int.Parse(btn.Name.Substring(6));
             lbBan.Text = "Bàn " + soBan.ToString();
             int kq = hdBus.GetMaHoaDonLonNhat();
-            bool tinhTrangBan = Convert.ToBoolean(banBus.GetTinhTrangBanByIDBan(soBan)["TinhTrang"]);
+            tinhTrangBan = Convert.ToBoolean(banBus.GetTinhTrangBanByIDBan(soBan)["TinhTrang"]);
             if (tinhTrangBan == false)
             {
                 btnThem.Enabled = true;
                 btnInPhieu.Enabled = true;
+                btnThanhToan.Enabled = false;
                 Tong = 0;
-                daRow = TableHoaDon.NewRow();
-                daRow["MaHD"] = kq + 1;
+                alow = true;
                 hoaDon = kq + 1;
-                daRow["MaNV"] = 2;
-                daRow["MaBan"] = soBan;
-                daRow["ThoiGian"] = DateTime.Now;
-                daRow["TinhTrang"] = false;
             }
             else
             {
                 btnThem.Enabled = false;
                 btnInPhieu.Enabled = false;
+                btnThanhToan.Enabled = true;
+                alow = false;
                 DataRow r = hdBus.GetThongTinHoaDonByIDBan(soBan);
                 hoaDon = Convert.ToInt32(r["MaHD"]);
                 Tong = Convert.ToInt32(r["TongTien"]);
-
                 DataTable dataTable = new HoaDonChiTiet_BUS().GetThongTinHoaDonChiTietByMaHD(hoaDon);
                 foreach (DataRow dr in dataTable.Rows)
                 {
@@ -142,39 +145,45 @@ namespace QuanLyQuanAnNhat
         private void btnInPhieu_Click(object sender, EventArgs e)
         {
             int count = lsvBill.Items.Count;
-            if (daRow != null && count > 0)
+            if (alow ==true && count > 0)
             {
-                daRow["TongTien"] = Tong;
-                TableHoaDon.Rows.Add(daRow);
+                E_hoaDon = new HoaDon(hoaDon, 2, soBan, Tong, DateTime.Now, false);
+                hdBus.ThemHoaDon(E_hoaDon,TableHoaDon);
                 hdBus.SaveHoaDon(TableHoaDon);
                 foreach (ListViewItem item in lsvBill.Items)
                 {
-                    DataRow dataRow = TableHoaDonChiTiet.NewRow();
-                    dataRow["MaHD"] = hoaDon;
-                    dataRow["MaSP"] = item.SubItems[4].Text;
-                    dataRow["SoLuong"] = int.Parse(item.SubItems[1].Text);
-                    TableHoaDonChiTiet.Rows.Add(dataRow);
+                    string maSP = item.SubItems[4].Text;
+                    int soLuong = int.Parse(item.SubItems[1].Text);
+                    E_hoaDonChiTiet = new HoaDonChiTiet(hoaDon, maSP, soLuong);
+                    hdctBus.ThemHoaDonChiTiet(E_hoaDonChiTiet, TableHoaDonChiTiet);
                 }
-                try
-                {
-                    hdctBus.SaveHoaDonChiTiet(TableHoaDonChiTiet);
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                hdctBus.SaveHoaDonChiTiet(TableHoaDonChiTiet);
 
-                daRow = null;
+                E_Ban = new Ban(soBan, true);
+                banBus.CapNhatTinhTrangBan(E_Ban, TableBan);
+                banBus.SaveBan(TableBan);
+                alow = false;
             }
         }
         private void bntGiam_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            tinhTrangBan = Convert.ToBoolean(banBus.GetTinhTrangBanByIDBan(soBan)["TinhTrang"]);
+            if (tinhTrangBan == true)
+            {
+                E_hoaDon = new HoaDon(hoaDon, 2, soBan, Tong, DateTime.Now, true);
+                hdBus.CapNhatTinhTrangHoaDon(E_hoaDon, TableHoaDon);
+                hdBus.SaveHoaDon(TableHoaDon);
 
+                E_Ban = new Ban(soBan, false);
+                banBus.CapNhatTinhTrangBan(E_Ban, TableBan);
+                banBus.SaveBan(TableBan);
+
+                lsvBill.Items.Clear();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -33,5 +33,15 @@ namespace BUS
                 throw exx;
             }
         }
+        public void CapNhatTinhTrangBan(Ban ban, DataTable dataTable)
+        {
+            Ban_DAO ban_DAO = new Ban_DAO();
+            ban_DAO.CapNhatTinhTrangBan(ban, dataTable);
+        }
+        public void SaveBan(DataTable dataTable)
+        {
+            Ban_DAO ban_DAO = new Ban_DAO();
+            ban_DAO.SaveBan(dataTable);
+        }
     }
 }

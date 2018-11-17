@@ -38,7 +38,6 @@ namespace DAO
             tb.Rows.Add(row);
 
         }
-
         public void Del(int row, DataTable dt)
         {
 
