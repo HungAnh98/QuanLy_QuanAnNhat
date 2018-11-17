@@ -15,8 +15,6 @@ namespace QuanLyQuanAnNhat
 {
     public partial class Form_QuanLyNhanVien : Form
     {
-
-
         NhanVien_BUS pr = new NhanVien_BUS();
         DataTable dt = new DataTable();
         int index = 0;
@@ -59,7 +57,7 @@ namespace QuanLyQuanAnNhat
             else
                 maNV = (int.Parse(dgvNhanVien.Rows[dgvNhanVien.Rows.Count - 1].Cells["MaNV"].Value.ToString())) + 1;
             ten = txtTenNV.Text;
-            ngaySinh = dateTimePicker1.Value.Date;//DateTime.Now.Date;
+            ngaySinh = dateTimePicker1.Value.Date;
             sdt = int.Parse(txtSDT.Text);
             chucVu = txtChucVu.Text;
             gioiTinh = cbGioiTinh.Text;
@@ -77,16 +75,9 @@ namespace QuanLyQuanAnNhat
                 flag = 1;
                 pr.AddEmp(getInfo(), dt);
                 clear();
-
-
-
-
-
-
             }
             catch (SqlException)
             {
-
                 MessageBox.Show("sai nha"); ;
             }
         }
@@ -101,19 +92,13 @@ namespace QuanLyQuanAnNhat
                     pr.Del(row, dt);
                 clear();
                 dgvNhanVien.DataSource = dt;
-
-
-
-
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            // dt = pr.getEmployeeTable()
             flag = 0;
             pr.editEm(getInfo(), dt, index);
-            // dgvNhanVien.DataSource = dt;
         }
 
         private void dgvNhanVien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -151,7 +136,5 @@ namespace QuanLyQuanAnNhat
                 dgvNhanVien.DataSource = dt;
             }
         }
-
-        
     }
 }

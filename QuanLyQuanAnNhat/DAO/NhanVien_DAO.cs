@@ -15,7 +15,6 @@ namespace DAO
         {
             try
             {
-                //string sql = "";
                 return GetDataSet("NhanVien").Tables[0];
             }
             catch (SqlException ex)
@@ -27,9 +26,6 @@ namespace DAO
 
         public void addEml(NhanVien nv, DataTable tb)
         {
-
-
-
             DataRow row = tb.NewRow();
             row["MaNV"] = nv.MaNV;
             row["Ten"] = nv.Ten;
@@ -41,9 +37,6 @@ namespace DAO
             row["DiaChi"] = nv.DiaChi;
             tb.Rows.Add(row);
 
-
-
-
         }
 
         public void Del(int row, DataTable dt)
@@ -54,11 +47,8 @@ namespace DAO
 
         public void EditEm(NhanVien nv, DataTable dt, int index)
         {
-
-
             if (dt.Rows[index]["MaNV"].ToString() == nv.MaNV.ToString())
             {
-
                 dt.Rows[index].SetField("Ten", nv.Ten.ToString());
                 dt.Rows[index].SetField("GioiTinh", nv.GioiTinh.ToString());
                 dt.Rows[index].SetField("NgaySinh", nv.NgaySinh.ToString());
@@ -66,13 +56,7 @@ namespace DAO
                 dt.Rows[index].SetField("Luong", nv.Luong.ToString());
                 dt.Rows[index].SetField("SDT", nv.Sdt.ToString());
                 dt.Rows[index].SetField("DiaChi", nv.DiaChi.ToString());
-
             }
-
-
-           
-
-
         }
     }
 }
