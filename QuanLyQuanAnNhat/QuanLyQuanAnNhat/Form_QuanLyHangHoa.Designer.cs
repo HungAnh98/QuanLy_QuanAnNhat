@@ -32,7 +32,7 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDonVi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.btnLuu);
             this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.txtDonVi);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtGiaBan);
@@ -97,14 +97,15 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // textBox4
+            // txtDonVi
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(604, 20);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(184, 26);
-            this.textBox4.TabIndex = 7;
+            this.txtDonVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDonVi.Location = new System.Drawing.Point(604, 20);
+            this.txtDonVi.Name = "txtDonVi";
+            this.txtDonVi.Size = new System.Drawing.Size(184, 26);
+            this.txtDonVi.TabIndex = 7;
             // 
             // label4
             // 
@@ -243,7 +244,7 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtDonVi;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtGiaBan;

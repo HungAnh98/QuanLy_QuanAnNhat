@@ -31,5 +31,11 @@ namespace BUS
             return dataRows[0];
         }
 
+
+        public void addProduct_Bus(SanPham sp, DataTable dt)
+        {
+            new SanPham_DAO().addProduct(sp, dt);
+        }
+
     }
 }

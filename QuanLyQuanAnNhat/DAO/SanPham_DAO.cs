@@ -24,6 +24,17 @@ namespace DAO
             }
         }
 
+        public void addProduct(SanPham sp, DataTable tb)
+        {
+            DataRow row = tb.NewRow();
+            row["MaSP"] = sp.MaSP;
+            row["Ten"] = sp.Ten;
+            row["DonVi"] = sp.DonVi;
+            row["GiaBan"] = sp.GiaBan;
+            tb.Rows.Add(row);
+
+        }
+
 
     }
 }
