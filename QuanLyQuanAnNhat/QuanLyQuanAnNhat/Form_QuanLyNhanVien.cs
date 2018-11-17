@@ -113,5 +113,24 @@ namespace QuanLyQuanAnNhat
             pr.editEm(getInfo(), dt, index);
             // dgvNhanVien.DataSource = dt;
         }
+
+        private void dgvNhanVien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            int row = index = e.RowIndex;
+            txtMaNV.Text = dgvNhanVien.Rows[row].Cells["MaNV"].Value.ToString();
+
+            txtTenNV.Text = dgvNhanVien.Rows[row].Cells["Ten"].Value.ToString();
+
+            cbGioiTinh.Text = dgvNhanVien.Rows[row].Cells["GioiTinh"].Value.ToString();
+
+            txtChucVu.Text = dgvNhanVien.Rows[row].Cells["ChucVu"].Value.ToString();
+
+            dateTimePicker1.Value = DateTime.Parse(dgvNhanVien.Rows[row].Cells["NgaySinh"].Value.ToString());
+
+            txtLuong.Text = dgvNhanVien.Rows[row].Cells["Luong"].Value.ToString();
+
+            txtSDT.Text = dgvNhanVien.Rows[row].Cells["SDT"].Value.ToString();
+        }
     }
 }

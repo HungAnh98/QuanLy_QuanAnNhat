@@ -153,6 +153,7 @@
             this.btnEdit.TabIndex = 15;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -297,6 +298,7 @@
             this.dgvNhanVien.Size = new System.Drawing.Size(1114, 283);
             this.dgvNhanVien.TabIndex = 0;
             this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
+            this.dgvNhanVien.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvNhanVien_CellMouseClick);
             // 
             // MaNV
             // 
