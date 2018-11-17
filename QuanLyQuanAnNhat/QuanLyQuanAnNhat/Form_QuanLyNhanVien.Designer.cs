@@ -295,7 +295,7 @@
             this.dgvNhanVien.RowHeadersVisible = false;
             this.dgvNhanVien.Size = new System.Drawing.Size(1114, 283);
             this.dgvNhanVien.TabIndex = 0;
-         //   this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
+            this.dgvNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellContentClick);
             // 
             // MaNV
             // 

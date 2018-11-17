@@ -128,5 +128,22 @@ namespace DAO
             SqlDataAdapter Da = new SqlDataAdapter(sql, con);
             return Da;
         }
+
+        public void Save(DataTable dt, string tenBang)
+        {
+            // Dataprovider dp = new Dataprovider();
+            SqlDataAdapter Da = initDa(tenBang);
+            SqlCommandBuilder bd = new SqlCommandBuilder(Da);
+            try
+            {
+
+                Da.Update(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
