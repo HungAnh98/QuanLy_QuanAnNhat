@@ -45,5 +45,11 @@ namespace DAO
 
 
         }
+
+        public void Del(int row, DataTable dt)
+        {
+
+            dt.Rows[row].Delete();
+        }
     }
 }
