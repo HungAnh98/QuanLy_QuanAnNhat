@@ -14,7 +14,22 @@ namespace BUS
     {
         public DataTable GetThongTinMenu()
         {
-            return new SanPham_DAO().GetTableProduct();
+            try
+            {
+                return new SanPham_DAO().GetTableProduct();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
+
+        public DataRow GetSanPhamByMaSP(string MaSP)
+        {
+            string condition = "MaSP = '" + MaSP+"'";
+            DataRow[] dataRows = new SanPham_DAO().GetTableProduct().Select(condition);
+            return dataRows[0];
+        }
+
     }
 }

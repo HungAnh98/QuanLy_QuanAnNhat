@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -62,6 +63,7 @@
             this.lbTongTien = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbAccount = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -324,6 +326,7 @@
             this.btnThanhToan.TabIndex = 4;
             this.btnThanhToan.Text = "Thanh toán";
             this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // bntGiam
             // 
@@ -333,6 +336,7 @@
             this.bntGiam.TabIndex = 5;
             this.bntGiam.Text = "Giảm >>";
             this.bntGiam.UseVisualStyleBackColor = true;
+            this.bntGiam.Click += new System.EventHandler(this.bntGiam_Click);
             // 
             // btnInPhieu
             // 
@@ -380,6 +384,11 @@
             this.lbAccount.Size = new System.Drawing.Size(56, 13);
             this.lbAccount.TabIndex = 8;
             this.lbAccount.Text = "Account : ";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form_Order
             // 
@@ -450,5 +459,6 @@
         private System.Windows.Forms.Label lbAccount;
         private System.Windows.Forms.ColumnHeader MaSP;
         private System.Windows.Forms.ColumnHeader MaSPBill;
+        private System.Windows.Forms.Timer timer1;
     }
 }

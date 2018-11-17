@@ -128,8 +128,7 @@ namespace DAO
             return Da;
         }
         public void Save(DataTable dt, string tenBang)
-        {
-            // Dataprovider dp = new Dataprovider();
+        { 
             SqlDataAdapter Da = initDa(tenBang);
             SqlCommandBuilder bd = new SqlCommandBuilder(Da);
             try

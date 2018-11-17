@@ -23,29 +23,30 @@ namespace BUS
                 throw ex;
             }
         }
-        public int GetThongTinHoaDonByIDBan(int idBan)
+        public DataRow GetThongTinHoaDonByIDBan(int idBan)
         {
-            string condition = "MaBan = " + idBan + " AND TinhTrang = " + false;
+            string condition = "MaBan = " + idBan ;
             try
             {
                 DataRow[] hoaDon = new HoaDon_DAO().GetTableHoaDon().Select(condition);
-                return Convert.ToInt32(hoaDon[0]["MaHD"]);
+                return hoaDon[0];
             }
             catch (SqlException ex)
             {
                 throw ex;
             }
-            catch (FormatException exx)
-            {
-                throw exx;
-            }
         }
         public int GetMaHoaDonLonNhat()
         {
             DataTable da = new HoaDon_DAO().GetTableHoaDon();
-            int index = da.Rows.Count - 1;
-            int kq = Convert.ToInt32(da.Rows[index]["MaHD"]);
-            return kq;
+            int index;
+            if (da.Rows.Count > 0)
+            {
+                index = da.Rows.Count - 1;
+                return Convert.ToInt32(da.Rows[index]["MaHD"]);
+            }
+            else
+                return 0;          
         }
         public void SaveHoaDon(DataTable dataTable)
         {

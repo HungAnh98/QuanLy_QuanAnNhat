@@ -32,5 +32,17 @@ namespace DAO
             string sql = "SELECT * FROM HoaDonChiTiet WHERE MaHD = " + MaHD;
             return GetDataTable(sql);
         }
+        public void SaveHoaDonChiTiet(DataTable dataTable)
+        {
+            try
+            {
+                Save(dataTable, "HoaDonChiTiet");
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

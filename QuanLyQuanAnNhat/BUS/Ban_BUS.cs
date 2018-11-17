@@ -12,13 +12,17 @@ namespace BUS
 {
     public class Ban_BUS
     {
-        public bool GetTinhTrangBanByIDBan(int idBan)
+        public DataTable GetTableBan()
+        {
+            return new Ban_DAO().GetTableBan();
+        }
+        public DataRow GetTinhTrangBanByIDBan(int idBan)
         {
             string condition = "MaBan = " + idBan;
             try
             {
                 DataRow[] hoaDon = new Ban_DAO().GetTableBan().Select(condition);
-                return Convert.ToBoolean(hoaDon[0]["TinhTrang"]);
+                return hoaDon[0];
             }
             catch (SqlException ex)
             {

@@ -38,5 +38,17 @@ namespace BUS
                 throw exx;
             }
         }
+        public void SaveHoaDonChiTiet(DataTable dataTable)
+        {
+            HoaDonChiTiet_DAO hoaDon_DAO = new HoaDonChiTiet_DAO();
+            try
+            {
+                hoaDon_DAO.SaveHoaDonChiTiet(dataTable);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

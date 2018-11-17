@@ -46,5 +46,6 @@ namespace QuanLyQuanAnNhat
             Form_QuanLyHangHoa frmOrder = new Form_QuanLyHangHoa();
             frmOrder.ShowDialog();
         }
+
     }
 }

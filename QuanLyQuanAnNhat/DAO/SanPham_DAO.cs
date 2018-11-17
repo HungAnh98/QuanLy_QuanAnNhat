@@ -12,8 +12,7 @@ namespace DAO
     public class SanPham_DAO:Dataprovider
     {
         public DataTable GetTableProduct()
-        {
-           
+        {       
             return GetDataSet("SanPham").Tables[0];
         }
     }
