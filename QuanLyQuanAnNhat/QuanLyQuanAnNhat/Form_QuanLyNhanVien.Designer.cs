@@ -162,6 +162,7 @@
             this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cbGioiTinh
             // 
@@ -254,7 +255,7 @@
             this.lb.Name = "lb";
             this.lb.Size = new System.Drawing.Size(87, 22);
             this.lb.TabIndex = 2;
-            this.lb.Text = "Tên nhân viên ";
+            this.lb.Text = "Địa chỉ";
             this.lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1

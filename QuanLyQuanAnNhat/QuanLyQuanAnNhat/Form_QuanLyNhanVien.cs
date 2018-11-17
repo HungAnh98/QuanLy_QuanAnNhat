@@ -68,6 +68,27 @@ namespace QuanLyQuanAnNhat
             return nv;
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                flag = 1;
+                pr.AddEmp(getInfo(), dt);
+                clear();
+
+
+
+
+
+
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("sai nha"); ;
+            }
+        }
+
         private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
