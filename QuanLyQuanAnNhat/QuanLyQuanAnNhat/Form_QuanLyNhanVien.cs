@@ -91,7 +91,19 @@ namespace QuanLyQuanAnNhat
 
         private void dgvNhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int col = e.ColumnIndex;
+            int row = e.RowIndex;
+            if (dgvNhanVien.Columns[col] is DataGridViewButtonColumn && dgvNhanVien.Columns[col].Name == "xoa")
+            {
+                if (row >= 0 && row < dgvNhanVien.Rows.Count)
+                    pr.Del(row, dt);
+                clear();
+                dgvNhanVien.DataSource = dt;
 
+
+
+
+            }
         }
     }
 }
