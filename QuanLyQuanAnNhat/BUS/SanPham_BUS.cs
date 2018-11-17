@@ -12,5 +12,9 @@ namespace BUS
 {
     public class SanPham_BUS
     {
+        public DataTable GetThongTinMenu()
+        {
+            return new SanPham_DAO().GetTableProduct();
+        }
     }
 }

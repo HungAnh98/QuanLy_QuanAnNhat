@@ -12,5 +12,31 @@ namespace BUS
 {
     public class HoaDonChiTiet_BUS
     {
+        public DataTable GetThongTinHoaDonChiTiet()
+        {
+            try
+            {
+                return new HoaDonChiTiet_DAO().GetTableHoaDonChiTiet();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable GetThongTinHoaDonChiTietByMaHD(int MaHD)
+        {
+            try
+            {
+                return new HoaDonChiTiet_DAO().GetTableHoaDonChiTietByMaHD(MaHD);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (FormatException exx)
+            {
+                throw exx;
+            }
+        }
     }
 }

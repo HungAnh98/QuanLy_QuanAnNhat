@@ -9,7 +9,12 @@ using DTO;
 
 namespace DAO
 {
-    public class HoaDon_DAO
+    public class HoaDon_DAO:Dataprovider
     {
+        public DataTable GetTableHoaDon()
+        {
+            string sql = "SELECT * FROM HoaDon";
+            return GetDataSet(sql, "HoaDon").Tables[0];
+        }
     }
 }

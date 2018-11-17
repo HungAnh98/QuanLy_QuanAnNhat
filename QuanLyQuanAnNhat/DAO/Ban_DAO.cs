@@ -9,7 +9,12 @@ using DTO;
 
 namespace DAO
 {
-    public class Ban_DAO
+    public class Ban_DAO:Dataprovider
     {
+        public DataTable GetTableBan()
+        {
+            string sql = "SELECT * FROM Ban";
+            return GetDataSet(sql, "Ban").Tables[0];
+        }
     }
 }

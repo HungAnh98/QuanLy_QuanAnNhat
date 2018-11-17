@@ -9,8 +9,12 @@ using DTO;
 
 namespace DAO
 {
-    public class SanPham_DAO
+    public class SanPham_DAO:Dataprovider
     {
-
+        public DataTable GetTableProduct()
+        {
+            string sql = "SELECT * FROM SanPham";
+            return GetDataSet(sql, "SanPham").Tables[0];
+        }
     }
 }

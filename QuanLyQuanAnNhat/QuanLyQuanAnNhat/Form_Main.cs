@@ -28,5 +28,23 @@ namespace QuanLyQuanAnNhat
                 this.Visible = true;
             }
         }
+
+        private void tlblOrder_Click(object sender, EventArgs e)
+        {
+            Form_Order frmOrder = new Form_Order();
+            frmOrder.ShowDialog();
+        }
+
+        private void tlblNhanVien_Click(object sender, EventArgs e)
+        {
+            Form_QuanLyNhanVien frmOrder = new Form_QuanLyNhanVien();
+            frmOrder.ShowDialog();
+        }
+
+        private void tlblHangHoa_Click(object sender, EventArgs e)
+        {
+            Form_QuanLyHangHoa frmOrder = new Form_QuanLyHangHoa();
+            frmOrder.ShowDialog();
+        }
     }
 }
