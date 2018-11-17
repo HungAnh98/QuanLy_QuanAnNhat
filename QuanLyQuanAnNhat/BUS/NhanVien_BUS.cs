@@ -37,5 +37,11 @@ namespace BUS
 
 
         }
+
+        public void Del(int row, DataTable dt)
+        {
+
+            em.Del(row, dt);
+        }
     }
 }
