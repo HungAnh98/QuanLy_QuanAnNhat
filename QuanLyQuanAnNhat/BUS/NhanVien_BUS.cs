@@ -43,5 +43,10 @@ namespace BUS
 
             em.Del(row, dt);
         }
+
+        public void editEm(NhanVien nv, DataTable dt, int index)
+        {
+            em.EditEm(nv, dt, index);
+        }
     }
 }
