@@ -366,6 +366,7 @@
             this.Name = "Form_QuanLyNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Quản Lý Nhân Viên";
+            this.Load += new System.EventHandler(this.Form_QuanLyNhanVien_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
