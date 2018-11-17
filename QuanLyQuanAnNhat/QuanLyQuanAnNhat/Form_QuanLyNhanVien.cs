@@ -105,5 +105,13 @@ namespace QuanLyQuanAnNhat
 
             }
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            // dt = pr.getEmployeeTable()
+            flag = 0;
+            pr.editEm(getInfo(), dt, index);
+            // dgvNhanVien.DataSource = dt;
+        }
     }
 }
