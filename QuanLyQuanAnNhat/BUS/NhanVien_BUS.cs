@@ -12,13 +12,13 @@ namespace BUS
 {
     public class NhanVien_BUS
     {
-        NhanVien_DAO em;
+        NhanVien_DAO em = new NhanVien_DAO();
         public DataTable getEmployeeTable()
         {
             try
             {
 
-                em = new NhanVien_DAO();
+                //em = new NhanVien_DAO();
                 return em.getEmployeeTable();
             }
             catch (SqlException ex)
@@ -26,6 +26,16 @@ namespace BUS
 
                 throw ex;
             }
+        }
+
+        public void AddEmp(NhanVien nv, DataTable dt)
+        {
+
+
+            em.addEml(nv, dt);
+
+
+
         }
     }
 }
