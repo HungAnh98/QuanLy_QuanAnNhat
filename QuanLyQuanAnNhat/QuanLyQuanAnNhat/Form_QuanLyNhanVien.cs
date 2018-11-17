@@ -29,9 +29,10 @@ namespace QuanLyQuanAnNhat
         private void Form_QuanLyNhanVien_Load(object sender, EventArgs e)
         {
             txtMaNV.Enabled = false;
-
+            txtTenNV.Focus();
             dt = pr.getEmployeeTable();
             dgvNhanVien.DataSource = dt;
+            
         }
 
         private void clear()
@@ -39,6 +40,7 @@ namespace QuanLyQuanAnNhat
 
             txtSDT.Text = txtTenNV.Text = txtMaNV.Text = txtLuong.Text = txtChucVu.Text = "";
             cbGioiTinh.Text = null;
+            txtTenNV.Focus();
             dateTimePicker1.Value = DateTime.Parse("1/1/1990");
 
         }
@@ -132,5 +134,24 @@ namespace QuanLyQuanAnNhat
 
             txtSDT.Text = dgvNhanVien.Rows[row].Cells["SDT"].Value.ToString();
         }
+
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                pr.Save(dt, "NhanVien");
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Không thể xóa nhân viên này vì có liên quan đến các bảng khác");
+                dt = pr.getEmployeeTable();
+                dgvNhanVien.DataSource = dt;
+            }
+        }
+
+        
     }
 }
