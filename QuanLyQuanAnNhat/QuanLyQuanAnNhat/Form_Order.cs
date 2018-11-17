@@ -18,23 +18,21 @@ namespace QuanLyQuanAnNhat
         {
             InitializeComponent();
         }
-        int Tong = 0;
+        
         HoaDon_BUS hdBus = new HoaDon_BUS();
         Ban_BUS banBus = new Ban_BUS();
+        HoaDonChiTiet_BUS hdctBus = new HoaDonChiTiet_BUS();
         DataTable TableHoaDon = new HoaDon_BUS().GetThongTinHoaDon();
+
         DataTable daTable;
         DataRow daRow;
-        SqlCommandBuilder builder;
-        SqlDataAdapter da;
-        SqlConnection con;
-        int soBan;
-        int hoaDon;
+
+        int soBan = 0;
+        int hoaDon = -1;
+        int Tong;
+
         private void Form_Order_Load(object sender, EventArgs e)
         {
-            string cnstr = "Server=.; Database= Quan_an; Integrated security=true;";
-            con = new SqlConnection(cnstr);
-            string sql = "SELECT * FROM HoaDon";
-            da = new SqlDataAdapter(sql, con);
             daTable = new SanPham_BUS().GetThongTinMenu();
             foreach (DataRow row in daTable.Rows)
             {
@@ -89,6 +87,9 @@ namespace QuanLyQuanAnNhat
             int kq = hdBus.GetMaHoaDonLonNhat();
             if (banBus.GetTinhTrangBanByIDBan(soBan) == false)
             {
+                btnThem.Enabled = true;
+                Tong = 0;
+                lbTongTien.Text = Tong.ToString();
                 daRow = TableHoaDon.NewRow();
                 daRow["MaHD"] = kq + 1;
                 hoaDon = kq + 1;
@@ -97,11 +98,19 @@ namespace QuanLyQuanAnNhat
                 daRow["TongTien"] = 0;
                 daRow["ThoiGian"] = DateTime.Now;
                 daRow["TinhTrang"] = false;
-                MessageBox.Show(kq.ToString());
+                MessageBox.Show(hoaDon.ToString());
             }
             else
             {
+                btnThem.Enabled = false;
                 hoaDon = hdBus.GetThongTinHoaDonByIDBan(soBan);
+            }
+            DataTable dataTable = new HoaDonChiTiet_BUS().GetThongTinHoaDonChiTietByMaHD(hoaDon);
+            foreach(DataRow dr in dataTable.Rows)
+            {
+                ListViewItem item = new ListViewItem(dr["MaSP"].ToString());
+                item.SubItems.Add(dr["SoLuong"].ToString());
+                lsvBill.Items.Add(item);
             }
         }
         private void btnInPhieu_Click(object sender, EventArgs e)
@@ -109,8 +118,7 @@ namespace QuanLyQuanAnNhat
             if (daRow != null)
             {
                 TableHoaDon.Rows.Add(daRow);
-                builder = new SqlCommandBuilder(da);
-                da.Update(TableHoaDon);
+                hdBus.SaveHoaDon(TableHoaDon);
                 daRow = null;
             }
         }

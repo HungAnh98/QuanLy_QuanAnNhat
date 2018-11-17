@@ -15,5 +15,9 @@ namespace DAO
         {
             return GetDataSet("HoaDon").Tables[0];
         }
+        public void SaveHoaDon(DataTable dataTable)
+        {
+            Save(dataTable,"HoaDon");
+        }
     }
 }

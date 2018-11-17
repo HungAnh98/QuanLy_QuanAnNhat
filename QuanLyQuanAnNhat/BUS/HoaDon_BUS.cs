@@ -47,6 +47,11 @@ namespace BUS
             int kq = Convert.ToInt32(da.Rows[index]["MaHD"]);
             return kq;
         }
+        public void SaveHoaDon(DataTable dataTable)
+        {
+            HoaDon_DAO hoaDon_DAO = new HoaDon_DAO();
+            hoaDon_DAO.SaveHoaDon(dataTable);
+        }
 
     }
 }
