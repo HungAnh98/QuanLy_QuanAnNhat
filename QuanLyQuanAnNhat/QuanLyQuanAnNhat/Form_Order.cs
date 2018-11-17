@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using BUS;
-
 namespace QuanLyQuanAnNhat
 {
     public partial class Form_Order : Form
@@ -103,9 +102,7 @@ namespace QuanLyQuanAnNhat
             else
             {
                 hoaDon = hdBus.GetThongTinHoaDonByIDBan(soBan);
-
             }
-            //dataGridView1.DataSource = new HoaDonChiTiet_BUS().GetThongTinHoaDonChiTietByMaHD(hoaDon);
         }
         private void btnInPhieu_Click(object sender, EventArgs e)
         {
@@ -116,8 +113,6 @@ namespace QuanLyQuanAnNhat
                 da.Update(TableHoaDon);
                 daRow = null;
             }
-
         }
-
     }
 }

@@ -13,8 +13,7 @@ namespace DAO
     {
         public DataTable GetTableHoaDon()
         {
-            string sql = "SELECT * FROM HoaDon";
-            return GetDataSet(sql, "HoaDon").Tables[0];
+            return GetDataSet("HoaDon").Tables[0];
         }
     }
 }

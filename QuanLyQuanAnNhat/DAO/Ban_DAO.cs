@@ -13,8 +13,7 @@ namespace DAO
     {
         public DataTable GetTableBan()
         {
-            string sql = "SELECT * FROM Ban";
-            return GetDataSet(sql, "Ban").Tables[0];
+            return GetDataSet("Ban").Tables[0];
         }
     }
 }

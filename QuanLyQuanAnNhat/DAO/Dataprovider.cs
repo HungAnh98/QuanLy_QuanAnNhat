@@ -106,10 +106,10 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataSet GetDataSet(string sql, string tenBang)
+        public DataSet GetDataSet(string tenBang)
         {
             DataSet ds = new DataSet();
-            sql = "SELECT * FROM " + tenBang;
+            string sql = "SELECT * FROM " + tenBang;
             SqlDataAdapter da = new SqlDataAdapter(sql, con);
             da.Fill(ds);
             return ds;
@@ -121,5 +121,6 @@ namespace DAO
             da.Fill(dt);
             return dt;
         }
+
     }
 }
