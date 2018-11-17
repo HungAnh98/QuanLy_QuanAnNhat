@@ -40,14 +40,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaSP = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xoa = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -170,22 +170,22 @@
             this.txtMaSP.Size = new System.Drawing.Size(184, 26);
             this.txtMaSP.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvSanPham
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvSanPham.AllowUserToAddRows = false;
+            this.dgvSanPham.BackgroundColor = System.Drawing.Color.White;
+            this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaSP,
             this.Ten,
             this.DonVi,
             this.GiaBan,
             this.xoa});
-            this.dataGridView1.Location = new System.Drawing.Point(87, 209);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1010, 360);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvSanPham.Location = new System.Drawing.Point(87, 209);
+            this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.RowHeadersVisible = false;
+            this.dgvSanPham.Size = new System.Drawing.Size(1010, 360);
+            this.dgvSanPham.TabIndex = 1;
             // 
             // MaSP
             // 
@@ -224,14 +224,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 581);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvSanPham);
             this.Controls.Add(this.panel1);
             this.Name = "Form_QuanLyHangHoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_QuanLyHangHoa";
+            this.Load += new System.EventHandler(this.Form_QuanLyHangHoa_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,7 +251,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaSP;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSanPham;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn DonVi;

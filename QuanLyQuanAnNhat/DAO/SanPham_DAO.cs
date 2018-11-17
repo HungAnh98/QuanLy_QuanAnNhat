@@ -12,8 +12,18 @@ namespace DAO
     public class SanPham_DAO:Dataprovider
     {
         public DataTable GetTableProduct()
-        {       
-            return GetDataSet("SanPham").Tables[0];
+        {
+            try
+            {
+                return GetDataSet("SanPham").Tables[0];
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
         }
+
+
     }
 }
