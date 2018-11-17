@@ -28,9 +28,16 @@ namespace QuanLyQuanAnNhat
         private void Form_QuanLyNhanVien_Load(object sender, EventArgs e)
         {
             txtMaNV.Enabled = false;
-            txtTenNV.Focus();
-            dt = pr.getEmployeeTable();
-            dgvNhanVien.DataSource = dt;
+            try
+            {
+                dt = pr.getEmployeeTable();
+                dgvNhanVien.DataSource = dt;
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Lỗi lấy dữ liệu");
+            }
             
         }
 
