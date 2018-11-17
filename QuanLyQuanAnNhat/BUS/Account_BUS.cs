@@ -12,6 +12,16 @@ namespace BUS
 {
     public class Account_BUS
     {
-
+        public bool login(Account acc)
+        {
+            try
+            {
+                return new Account_DAO().CheckInfor(acc);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

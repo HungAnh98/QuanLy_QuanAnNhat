@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Account_DAO.cs" />
     <Compile Include="Ban_DAO.cs" />
+    <Compile Include="Dataprovider.cs" />
     <Compile Include="HoaDonChiTiet_DAO.cs" />
     <Compile Include="HoaDon_DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
