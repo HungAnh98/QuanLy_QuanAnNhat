@@ -24,5 +24,26 @@ namespace DAO
                 throw ex;
             }
         }
+
+        public void addEml(NhanVien nv, DataTable tb)
+        {
+
+
+
+            DataRow row = tb.NewRow();
+            row["MaNV"] = nv.MaNV;
+            row["Ten"] = nv.Ten;
+            row["GioiTinh"] = nv.GioiTinh;
+            row["NgaySinh"] = nv.NgaySinh;
+            row["ChucVu"] = nv.ChucVu;
+            row["Luong"] = nv.Luong;
+            row["SDT"] = nv.Sdt;
+            row["DiaChi"] = nv.DiaChi;
+            tb.Rows.Add(row);
+
+
+
+
+        }
     }
 }
