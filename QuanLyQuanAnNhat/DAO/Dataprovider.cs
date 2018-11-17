@@ -121,6 +121,12 @@ namespace DAO
             da.Fill(dt);
             return dt;
         }
-
+        public SqlDataAdapter initDa(string tenBang)
+        {
+            DataSet Ds = new DataSet();
+            string sql = "SELECT * FROM " + tenBang;
+            SqlDataAdapter Da = new SqlDataAdapter(sql, con);
+            return Da;
+        }
     }
 }
