@@ -8,11 +8,6 @@ namespace DTO
 {
     public class Ban
     {
-        int maBan;
-        int soGhe;
-        int tang;
-        bool tinhTrang;
-
         public Ban(int maBan, int soGhe, int tang, bool tinhTrang)
         {
             MaBan = maBan;
@@ -20,9 +15,11 @@ namespace DTO
             Tang = tang;
             TinhTrang = tinhTrang;
         }
-        public int MaBan { get => MaBan; set => MaBan = value; }
-        public int SoGhe { get => soGhe; set => soGhe = value; }
-        public int Tang { get => Tang; set => Tang = value; }
-        public bool TinhTrang { get => tinhTrang; set => tinhTrang = value; }
+        
+        public int MaBan { get; set; }
+        public int SoGhe { get; set; }
+        public int Tang { get; set; }
+        public bool TinhTrang { get; set; }
+
     }
 }
