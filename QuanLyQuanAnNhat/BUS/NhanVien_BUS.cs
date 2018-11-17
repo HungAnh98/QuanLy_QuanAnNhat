@@ -48,5 +48,18 @@ namespace BUS
         {
             em.EditEm(nv, dt, index);
         }
+
+        public void Save(DataTable dt, string tenBang)
+        {
+            try
+            {
+                em.Save(dt, tenBang);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
