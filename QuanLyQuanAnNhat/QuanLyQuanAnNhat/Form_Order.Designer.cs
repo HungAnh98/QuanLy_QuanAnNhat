@@ -106,7 +106,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(359, 502);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Ngoai San";
+            this.tabPage2.Text = "Tầng 1";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnBan9
@@ -228,7 +228,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Mat hang";
+            this.columnHeader1.Text = "Tên món";
             this.columnHeader1.Width = 150;
             // 
             // columnHeader2
@@ -238,12 +238,12 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Don gia";
+            this.columnHeader3.Text = "Đơn giá";
             this.columnHeader3.Width = 90;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "DVT";
+            this.columnHeader4.Text = "ĐVT";
             this.columnHeader4.Width = 75;
             // 
             // MaSPBill
@@ -288,17 +288,17 @@
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Ten";
+            this.columnHeader5.Text = "Tên món";
             this.columnHeader5.Width = 130;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Don vi";
+            this.columnHeader6.Text = "Đơn vị";
             this.columnHeader6.Width = 78;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "Don gia";
+            this.columnHeader7.Text = "Đơn giá";
             this.columnHeader7.Width = 93;
             // 
             // MaSP
@@ -357,16 +357,16 @@
             // 
             this.lbTongTien.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.lbTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTongTien.Location = new System.Drawing.Point(134, 10);
+            this.lbTongTien.Location = new System.Drawing.Point(92, 10);
             this.lbTongTien.Name = "lbTongTien";
-            this.lbTongTien.Size = new System.Drawing.Size(208, 23);
+            this.lbTongTien.Size = new System.Drawing.Size(263, 23);
             this.lbTongTien.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 10);
+            this.label5.Location = new System.Drawing.Point(3, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 20);
             this.label5.TabIndex = 0;
