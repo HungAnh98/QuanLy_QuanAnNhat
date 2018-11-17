@@ -15,6 +15,7 @@ namespace QuanLyQuanAnNhat
 {
     public partial class Form_QuanLyNhanVien : Form
     {
+  
         NhanVien_BUS pr = new NhanVien_BUS();
         DataTable dt = new DataTable();
         int index = 0;
@@ -27,9 +28,16 @@ namespace QuanLyQuanAnNhat
         private void Form_QuanLyNhanVien_Load(object sender, EventArgs e)
         {
             txtMaNV.Enabled = false;
-            txtTenNV.Focus();
-            dt = pr.getEmployeeTable();
-            dgvNhanVien.DataSource = dt;
+            try
+            {
+                dt = pr.getEmployeeTable();
+                dgvNhanVien.DataSource = dt;
+            }
+            catch (SqlException)
+            {
+
+                MessageBox.Show("Lỗi lấy dữ liệu");
+            }
             
         }
 
@@ -45,26 +53,28 @@ namespace QuanLyQuanAnNhat
 
         private NhanVien getInfo()
         {
-            int maNV;
-            string ten, gioiTinh, chucVu, diaChi;
-            DateTime ngaySinh;
-            int sdt;
-            int luong;
-            if (flag == 0)
-            {
-                maNV = int.Parse(txtMaNV.Text);
-            }
-            else
-                maNV = (int.Parse(dgvNhanVien.Rows[dgvNhanVien.Rows.Count - 1].Cells["MaNV"].Value.ToString())) + 1;
-            ten = txtTenNV.Text;
-            ngaySinh = dateTimePicker1.Value.Date;
-            sdt = int.Parse(txtSDT.Text);
-            chucVu = txtChucVu.Text;
-            gioiTinh = cbGioiTinh.Text;
-            luong = int.Parse(txtLuong.Text);
-            diaChi = txtDiaChi.Text;
+        
+                int maNV;
+                string ten, gioiTinh, chucVu, diaChi;
+                DateTime ngaySinh;
+                int sdt;
+                int luong;
+                if (flag == 0)
+                {
+                    maNV = int.Parse(txtMaNV.Text);
+                }
+                else
+                    maNV = (int.Parse(dgvNhanVien.Rows[dgvNhanVien.Rows.Count - 1].Cells["MaNV"].Value.ToString())) + 1;
+                gioiTinh = cbGioiTinh.Text;
+                ngaySinh = dateTimePicker1.Value.Date;
+                sdt = int.Parse(txtSDT.Text);
+                chucVu = txtChucVu.Text;
+                ten = txtTenNV.Text;
+                luong = int.Parse(txtLuong.Text);
+                diaChi = txtDiaChi.Text;
 
-            NhanVien nv = new NhanVien(maNV, ten, gioiTinh, ngaySinh, chucVu, luong, sdt, diaChi);
+                NhanVien nv = new NhanVien(maNV, ten, gioiTinh, ngaySinh, chucVu, luong, sdt, diaChi);
+
             return nv;
         }
 
@@ -72,9 +82,26 @@ namespace QuanLyQuanAnNhat
         {
             try
             {
-                flag = 1;
-                pr.AddEmp(getInfo(), dt);
-                clear();
+                if (string.IsNullOrWhiteSpace(txtTenNV.Text) || string.IsNullOrWhiteSpace(cbGioiTinh.Text) || string.IsNullOrWhiteSpace(txtChucVu.Text) || string.IsNullOrWhiteSpace(txtLuong.Text))
+                {
+                    MessageBox.Show("Ban phai nhap day du thong tin");
+                    return;
+                }
+                else
+                {
+                    if((cbGioiTinh.Text.Trim() == "Nam" || cbGioiTinh.Text.Trim() == "Nữ") && (txtChucVu.Text.Trim() == "NV" || txtChucVu.Text.Trim() == "QL"))
+                    {
+                        flag = 1;
+                        pr.AddEmp(getInfo(), dt);
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ban phai nhap thong tin cho chinh xac o mục Gioi tính hoặc mục Chức vụ!");
+                        return;
+                    }
+                }
+                
             }
             catch (SqlException)
             {
@@ -97,8 +124,36 @@ namespace QuanLyQuanAnNhat
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            flag = 0;
-            pr.editEm(getInfo(), dt, index);
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtTenNV.Text) || string.IsNullOrWhiteSpace(cbGioiTinh.Text) || string.IsNullOrWhiteSpace(txtChucVu.Text) || string.IsNullOrWhiteSpace(txtLuong.Text))
+                {
+                    MessageBox.Show("Ban phai nhap day du thong tin");
+                    return;
+                }
+                else
+                {
+                    if ((cbGioiTinh.Text.Trim() == "Nam" || cbGioiTinh.Text.Trim() == "Nữ") && (txtChucVu.Text.Trim() == "NV" || txtChucVu.Text.Trim() == "QL"))
+                    {
+                        flag = 0;
+                        pr.editEm(getInfo(), dt, index);
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ban phai nhap thong tin cho chinh xac o mục Gioi tính hoặc mục Chức vụ!");
+                        return;
+                    }
+                }
+
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("sai nha"); ;
+            }
+            
+          
         }
 
         private void dgvNhanVien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -134,6 +189,14 @@ namespace QuanLyQuanAnNhat
                 MessageBox.Show("Không thể xóa nhân viên này vì có liên quan đến các bảng khác");
                 dt = pr.getEmployeeTable();
                 dgvNhanVien.DataSource = dt;
+            }
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
