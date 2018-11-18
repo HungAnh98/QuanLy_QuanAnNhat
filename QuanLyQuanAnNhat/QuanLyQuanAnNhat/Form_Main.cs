@@ -28,7 +28,6 @@ namespace QuanLyQuanAnNhat
                 this.Visible = true;
             }
         }
-
         private void tlblOrder_Click(object sender, EventArgs e)
         {
             Form_Order frmOrder = new Form_Order();

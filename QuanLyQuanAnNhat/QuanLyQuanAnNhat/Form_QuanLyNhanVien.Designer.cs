@@ -42,7 +42,6 @@
             this.lbLuong = new System.Windows.Forms.Label();
             this.lbNgaySinh = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xoa = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtChucVu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
@@ -67,6 +67,7 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.txtChucVu);
             this.panel1.Controls.Add(this.txtTenNV);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label6);
@@ -80,7 +81,6 @@
             this.panel1.Controls.Add(this.lbLuong);
             this.panel1.Controls.Add(this.lbNgaySinh);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtChucVu);
             this.panel1.Controls.Add(this.txtDiaChi);
             this.panel1.Controls.Add(this.txtMaNV);
             this.panel1.Controls.Add(this.label4);
@@ -126,6 +126,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(213, 26);
             this.txtSDT.TabIndex = 19;
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // dateTimePicker1
             // 
@@ -184,6 +185,7 @@
             this.txtLuong.Name = "txtLuong";
             this.txtLuong.Size = new System.Drawing.Size(213, 26);
             this.txtLuong.TabIndex = 12;
+            this.txtLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // lbLuong
             // 
@@ -214,14 +216,6 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Chức vụ";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtChucVu
-            // 
-            this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChucVu.Location = new System.Drawing.Point(698, 15);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(213, 26);
-            this.txtChucVu.TabIndex = 7;
             // 
             // txtDiaChi
             // 
@@ -358,6 +352,18 @@
             this.xoa.Name = "xoa";
             this.xoa.Width = 50;
             // 
+            // txtChucVu
+            // 
+            this.txtChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChucVu.FormattingEnabled = true;
+            this.txtChucVu.Items.AddRange(new object[] {
+            "NV",
+            "QL"});
+            this.txtChucVu.Location = new System.Drawing.Point(698, 15);
+            this.txtChucVu.Name = "txtChucVu";
+            this.txtChucVu.Size = new System.Drawing.Size(213, 28);
+            this.txtChucVu.TabIndex = 23;
+            // 
             // Form_QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,7 +393,6 @@
         private System.Windows.Forms.Label lbLuong;
         private System.Windows.Forms.Label lbNgaySinh;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.TextBox txtDiaChi;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lb;
@@ -411,6 +416,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewButtonColumn xoa;
         private System.Windows.Forms.TextBox txtTenNV;
+        private System.Windows.Forms.ComboBox txtChucVu;
     }
 
 }

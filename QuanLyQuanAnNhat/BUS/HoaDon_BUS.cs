@@ -53,6 +53,16 @@ namespace BUS
             HoaDon_DAO hoaDon_DAO = new HoaDon_DAO();
             hoaDon_DAO.SaveHoaDon(dataTable);
         }
+        public void ThemHoaDon(HoaDon hoaDon,DataTable dataTable)
+        {
+            HoaDon_DAO hoaDon_DAO = new HoaDon_DAO();
+            hoaDon_DAO.ThemHoaDon(hoaDon,dataTable);
+        }
+        public void CapNhatTinhTrangHoaDon(HoaDon hoaDon, DataTable dataTable)
+        {
+            HoaDon_DAO hoaDon_DAO = new HoaDon_DAO();
+            hoaDon_DAO.CapNhatTinhTrangHoaDon(hoaDon, dataTable);
+        }
 
     }
 }

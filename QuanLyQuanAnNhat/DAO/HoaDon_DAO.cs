@@ -15,6 +15,28 @@ namespace DAO
         {
             return GetDataSet("HoaDon").Tables[0];
         }
+
+        public void ThemHoaDon(HoaDon hoaDon,DataTable dataTable)
+        {
+            DataRow row = dataTable.NewRow();
+            row["MaHD"] = hoaDon.MaHD;
+            row["MaNV"] = hoaDon.MaNV;
+            row["MaBan"] = hoaDon.MaBan;
+            row["TongTien"] = hoaDon.TongTien;
+            row["ThoiGian"] = hoaDon.ThoiGian;
+            row["TinhTrang"] = hoaDon.TinhTrang;
+            dataTable.Rows.Add(row);
+        }
+        public void CapNhatTinhTrangHoaDon(HoaDon hoaDon, DataTable dataTable)
+        {
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                if (dr["MaHD"].ToString() == hoaDon.MaHD.ToString())
+                {
+                    dr.SetField("TinhTrang", hoaDon.TinhTrang);
+                }
+            }
+        }
         public void SaveHoaDon(DataTable dataTable)
         {
             Save(dataTable,"HoaDon");

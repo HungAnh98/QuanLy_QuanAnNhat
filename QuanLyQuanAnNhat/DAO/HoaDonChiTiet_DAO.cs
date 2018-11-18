@@ -43,6 +43,14 @@ namespace DAO
                 throw ex;
             }
         }
+        public void ThemHoaDonChiTiet(HoaDonChiTiet hoaDonChiTiet, DataTable dataTable)
+        {
+            DataRow row = dataTable.NewRow();
+            row["MaHD"] = hoaDonChiTiet.MaHD;
+            row["MaSP"] = hoaDonChiTiet.MaSP;
+            row["SoLuong"] = hoaDonChiTiet.SoLuong;
+            dataTable.Rows.Add(row);
+        }
 
     }
 }
