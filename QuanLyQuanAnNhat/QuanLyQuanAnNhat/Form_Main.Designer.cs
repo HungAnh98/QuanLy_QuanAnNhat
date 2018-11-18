@@ -40,6 +40,7 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.tlblBaoCao = new System.Windows.Forms.ToolStripLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,11 +138,21 @@
             this.tlblBaoCao.Size = new System.Drawing.Size(49, 22);
             this.tlblBaoCao.Text = "Báo cáo";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 467);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 489);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form_Main";
             this.Text = "Chương trình quản lý nhà hàng";
@@ -168,5 +179,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripLabel tlblHangHoa;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.Label label1;
     }
 }

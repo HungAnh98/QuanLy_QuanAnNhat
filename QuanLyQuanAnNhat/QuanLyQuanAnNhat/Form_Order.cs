@@ -130,7 +130,7 @@ namespace QuanLyQuanAnNhat
                 DataTable dataTable = new HoaDonChiTiet_BUS().GetThongTinHoaDonChiTietByMaHD(hoaDon);
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    string MaSP = dr["MaSP"].ToString();
+                    int MaSP = int.Parse(dr["MaSP"].ToString());
                     DataRow row = spBus.GetSanPhamByMaSP(MaSP);
                     ListViewItem item = new ListViewItem(row["Ten"].ToString());
                     item.SubItems.Add(dr["SoLuong"].ToString());

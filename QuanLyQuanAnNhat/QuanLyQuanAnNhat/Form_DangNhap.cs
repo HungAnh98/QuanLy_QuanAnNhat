@@ -15,9 +15,16 @@ namespace QuanLyQuanAnNhat
 {
     public partial class Form_DangNhap : Form
     {
+        public delegate void SendMessage(string Message);
+        public SendMessage Sender;
         public Form_DangNhap()
         {
             InitializeComponent();
+            Sender = new SendMessage(GetMessage);
+        }
+        private void GetMessage(string Message)
+        {
+            txtName.Text = Message;
         }
 
         Account_BUS account_BUS;

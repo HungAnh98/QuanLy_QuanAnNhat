@@ -24,9 +24,9 @@ namespace BUS
             }
         }
 
-        public DataRow GetSanPhamByMaSP(string MaSP)
+        public DataRow GetSanPhamByMaSP(int MaSP)
         {
-            string condition = "MaSP = '" + MaSP+"'";
+            string condition = "MaSP = " + MaSP;
             DataRow[] dataRows = new SanPham_DAO().GetTableProduct().Select(condition);
             return dataRows[0];
         }
