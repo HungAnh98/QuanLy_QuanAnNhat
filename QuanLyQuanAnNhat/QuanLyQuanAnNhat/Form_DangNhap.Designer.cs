@@ -110,6 +110,8 @@
             // 
             // pnlLogin
             // 
+            this.pnlLogin.BackgroundImage = global::QuanLyQuanAnNhat.Properties.Resources.backgroundLogin;
+            this.pnlLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlLogin.Controls.Add(this.btnThoat);
             this.pnlLogin.Controls.Add(this.label1);
             this.pnlLogin.Controls.Add(this.btnDangNhap);

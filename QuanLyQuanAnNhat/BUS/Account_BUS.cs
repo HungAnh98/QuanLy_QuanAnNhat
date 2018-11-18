@@ -23,5 +23,22 @@ namespace BUS
                 throw ex;
             }
         }
+        public DataTable GetTableAccount()
+        {
+            return new Account_DAO().GetTableAccount();
+        }
+        public DataRow GetThongTinAccountByUserName(string userName)
+        {
+            string condition = "UserName = '" + userName +"'";
+            try
+            {
+                DataRow[] hoaDon = new Account_DAO().GetTableAccount().Select(condition);
+                return hoaDon[0];
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -101,6 +101,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,6 +125,45 @@
       <Project>{f517a625-990d-4e4f-a4c1-ca28344be5fc}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroundFrmmain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroundLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bancokhach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bantrong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baocao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon add.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon Dang nhap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon delete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconoder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inphieu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_nhahang.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nhanvien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tong-hop-10-background-powerpoint-quyen-vo-cuc-dep-cuc-huu-ich-1485153362-1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

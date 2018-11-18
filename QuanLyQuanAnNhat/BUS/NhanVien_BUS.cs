@@ -48,7 +48,6 @@ namespace BUS
         {
             em.EditEm(nv, dt, index);
         }
-
         public void Save(DataTable dt, string tenBang)
         {
             try
@@ -58,6 +57,20 @@ namespace BUS
             catch (SqlException ex)
             {
 
+                throw ex;
+            }
+        }
+
+        public DataRow GetThongTinNhanVienByID(int MaNV)
+        {
+            string condition = "MaNV = " + MaNV;
+            try
+            {
+                DataRow[] hoaDon = new NhanVien_DAO().getEmployeeTable().Select(condition);
+                return hoaDon[0];
+            }
+            catch (SqlException ex)
+            {
                 throw ex;
             }
         }

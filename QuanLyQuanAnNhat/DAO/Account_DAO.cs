@@ -29,5 +29,11 @@ namespace DAO
             else
                 return false;
         }
+
+        public DataTable GetTableAccount()
+        {
+            return GetDataSet("Account").Tables[0];
+        }
+
     }
 }
