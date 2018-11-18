@@ -77,6 +77,7 @@
             this.btnLuu.TabIndex = 10;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnEdit
             // 
@@ -87,6 +88,7 @@
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -134,6 +136,7 @@
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(184, 26);
             this.txtGiaBan.TabIndex = 4;
+            this.txtGiaBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaBan_KeyPress);
             // 
             // txtTenSP
             // 
@@ -165,6 +168,7 @@
             // 
             // txtMaSP
             // 
+            this.txtMaSP.Enabled = false;
             this.txtMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSP.Location = new System.Drawing.Point(186, 20);
             this.txtMaSP.Name = "txtMaSP";
@@ -187,6 +191,8 @@
             this.dgvSanPham.RowHeadersVisible = false;
             this.dgvSanPham.Size = new System.Drawing.Size(1010, 360);
             this.dgvSanPham.TabIndex = 1;
+            this.dgvSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellContentClick);
+            this.dgvSanPham.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSanPham_CellMouseClick);
             // 
             // MaSP
             // 
@@ -219,6 +225,7 @@
             // 
             this.xoa.HeaderText = "Xóa";
             this.xoa.Name = "xoa";
+            this.xoa.Width = 90;
             // 
             // Form_QuanLyHangHoa
             // 
