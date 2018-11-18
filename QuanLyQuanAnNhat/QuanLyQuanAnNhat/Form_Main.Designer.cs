@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tlblOrder = new System.Windows.Forms.ToolStripLabel();
@@ -148,6 +149,7 @@
             this.BackgroundImage = global::QuanLyQuanAnNhat.Properties.Resources.backgroundFrmmain;
             this.ClientSize = new System.Drawing.Size(911, 489);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Main";
             this.Text = "Chương trình quản lý nhà hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

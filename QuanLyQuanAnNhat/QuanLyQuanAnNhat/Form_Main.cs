@@ -12,6 +12,8 @@ namespace QuanLyQuanAnNhat
 {
     public partial class Form_Main : Form
     {
+        int MaNV;
+        string ChucVu;
         public Form_Main()
         {
             InitializeComponent();
@@ -25,25 +27,43 @@ namespace QuanLyQuanAnNhat
             DialogResult result = frmDN.DialogResult;
             if (result == DialogResult.OK)
             {
+                MaNV = frmDN.MaNV;
+                ChucVu = frmDN.ChucVu.Trim();
                 this.Visible = true;
             }
+            MessageBox.Show(ChucVu);
         }
         private void tlblOrder_Click(object sender, EventArgs e)
         {
-            Form_Order frmOrder = new Form_Order();
-            frmOrder.ShowDialog();
+            if (ChucVu == "NV")
+            {
+                Form_Order frmOrder = new Form_Order(MaNV);
+                frmOrder.ShowDialog();
+            }
+            else
+                MessageBox.Show("Phần này chỉ dành cho nhân viên", "ThôngBáo");
         }
 
         private void tlblNhanVien_Click(object sender, EventArgs e)
         {
-            Form_QuanLyNhanVien frmOrder = new Form_QuanLyNhanVien();
-            frmOrder.ShowDialog();
+            if (ChucVu == "QL")
+            {
+                Form_QuanLyNhanVien frmOrder = new Form_QuanLyNhanVien();
+                frmOrder.ShowDialog();
+            }
+            else
+                MessageBox.Show("Phần này chỉ dành cho quản lý , nhân viên thì ra chỗ khác chơi", "ThôngBáo");
         }
 
         private void tlblHangHoa_Click(object sender, EventArgs e)
         {
-            Form_QuanLyHangHoa frmOrder = new Form_QuanLyHangHoa();
-            frmOrder.ShowDialog();
+            if (ChucVu == "QL")
+            {
+                Form_QuanLyHangHoa frmOrder = new Form_QuanLyHangHoa();
+                frmOrder.ShowDialog();
+            }
+            else
+                MessageBox.Show("Phần này chỉ dành cho quản lý , nhân viên thì ra chỗ khác chơi", "ThôngBáo");
         }
 
     }

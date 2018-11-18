@@ -15,7 +15,6 @@ namespace QuanLyQuanAnNhat
 {
     public partial class Form_QuanLyNhanVien : Form
     {
-  
         NhanVien_BUS pr = new NhanVien_BUS();
         DataTable dt = new DataTable();
         int index = 0;
@@ -24,7 +23,6 @@ namespace QuanLyQuanAnNhat
         {
             InitializeComponent();
         }
-
         private void Form_QuanLyNhanVien_Load(object sender, EventArgs e)
         {
             txtMaNV.Enabled = false;
@@ -37,10 +35,8 @@ namespace QuanLyQuanAnNhat
             {
 
                 MessageBox.Show("Lỗi lấy dữ liệu");
-            }
-            
+            }           
         }
-
         private void clear()
         {
 

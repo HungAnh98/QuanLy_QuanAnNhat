@@ -80,7 +80,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(195, 275);
+            this.btnDangNhap.Location = new System.Drawing.Point(191, 264);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(115, 40);
             this.btnDangNhap.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(337, 275);
+            this.btnThoat.Location = new System.Drawing.Point(342, 264);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(115, 40);
             this.btnThoat.TabIndex = 6;

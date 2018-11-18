@@ -115,7 +115,6 @@ namespace QuanLyQuanAnNhat
                 clear();
             }
         }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             try

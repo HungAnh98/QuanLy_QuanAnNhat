@@ -23,7 +23,6 @@ namespace DAO
                 throw ex;
             }
         }
-
         public void AddProduct(SanPham sp, DataTable tb)
         {
             DataRow row = tb.NewRow();
@@ -34,15 +33,11 @@ namespace DAO
             tb.Rows.Add(row);
 
         }
-
-
         public void Del(int row, DataTable dt)
         {
 
             dt.Rows[row].Delete();
         }
-
-
         public void Edit(SanPham sp, DataTable dt, int index)
         {
 

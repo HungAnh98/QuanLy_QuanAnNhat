@@ -183,6 +183,46 @@ namespace QuanLyQuanAnNhat.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rsz_1add {
+            get {
+                object obj = ResourceManager.GetObject("rsz_1add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_delete {
+            get {
+                object obj = ResourceManager.GetObject("rsz_delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_disk_green {
+            get {
+                object obj = ResourceManager.GetObject("rsz_disk_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rsz_note_edit {
+            get {
+                object obj = ResourceManager.GetObject("rsz_note_edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tong_hop_10_background_powerpoint_quyen_vo_cuc_dep_cuc_huu_ich_1485153362_1 {
             get {
                 object obj = ResourceManager.GetObject("tong-hop-10-background-powerpoint-quyen-vo-cuc-dep-cuc-huu-ich-1485153362-1", resourceCulture);

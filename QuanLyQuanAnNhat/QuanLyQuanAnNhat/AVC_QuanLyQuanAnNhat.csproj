@@ -165,5 +165,17 @@
   <ItemGroup>
     <None Include="Resources\tong-hop-10-background-powerpoint-quyen-vo-cuc-dep-cuc-huu-ich-1485153362-1.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_1add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_disk_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rsz_note_edit.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

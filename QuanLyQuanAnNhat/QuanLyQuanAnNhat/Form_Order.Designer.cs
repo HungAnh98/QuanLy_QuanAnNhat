@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Order));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -57,12 +58,11 @@
             this.MaSP = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnThem = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
-            this.bntGiam = new System.Windows.Forms.Button();
+            this.btnGiam = new System.Windows.Forms.Button();
             this.btnInPhieu = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lbTongTien = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lbAccount = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -85,6 +85,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(7, 8);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -94,6 +95,8 @@
             // tabPage2
             // 
             this.tabPage2.AutoScroll = true;
+            this.tabPage2.BackgroundImage = global::QuanLyQuanAnNhat.Properties.Resources.tong_hop_10_background_powerpoint_quyen_vo_cuc_dep_cuc_huu_ich_1485153362_1;
+            this.tabPage2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage2.Controls.Add(this.btnBan9);
             this.tabPage2.Controls.Add(this.btnBan8);
             this.tabPage2.Controls.Add(this.btnBan7);
@@ -103,10 +106,11 @@
             this.tabPage2.Controls.Add(this.btnBan3);
             this.tabPage2.Controls.Add(this.btnBan2);
             this.tabPage2.Controls.Add(this.btnBan1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Font = new System.Drawing.Font("Matura MT Script Capitals", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(359, 502);
+            this.tabPage2.Size = new System.Drawing.Size(359, 497);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tầng 1";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -117,7 +121,7 @@
             this.btnBan9.Name = "btnBan9";
             this.btnBan9.Size = new System.Drawing.Size(80, 80);
             this.btnBan9.TabIndex = 8;
-            this.btnBan9.Text = "btnBan9";
+            this.btnBan9.Text = "Bàn 9";
             this.btnBan9.UseVisualStyleBackColor = true;
             this.btnBan9.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -127,7 +131,7 @@
             this.btnBan8.Name = "btnBan8";
             this.btnBan8.Size = new System.Drawing.Size(80, 80);
             this.btnBan8.TabIndex = 7;
-            this.btnBan8.Text = "btnBan8";
+            this.btnBan8.Text = "Bàn 8";
             this.btnBan8.UseVisualStyleBackColor = true;
             this.btnBan8.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -137,7 +141,7 @@
             this.btnBan7.Name = "btnBan7";
             this.btnBan7.Size = new System.Drawing.Size(80, 80);
             this.btnBan7.TabIndex = 6;
-            this.btnBan7.Text = "btnBan7";
+            this.btnBan7.Text = "Bàn 7";
             this.btnBan7.UseVisualStyleBackColor = true;
             this.btnBan7.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -147,7 +151,7 @@
             this.btnBan6.Name = "btnBan6";
             this.btnBan6.Size = new System.Drawing.Size(80, 80);
             this.btnBan6.TabIndex = 5;
-            this.btnBan6.Text = "btnBan6";
+            this.btnBan6.Text = "Bàn 6";
             this.btnBan6.UseVisualStyleBackColor = true;
             this.btnBan6.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -157,7 +161,7 @@
             this.btnBan5.Name = "btnBan5";
             this.btnBan5.Size = new System.Drawing.Size(80, 80);
             this.btnBan5.TabIndex = 4;
-            this.btnBan5.Text = "btnBan5";
+            this.btnBan5.Text = "Bàn 5";
             this.btnBan5.UseVisualStyleBackColor = true;
             this.btnBan5.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -167,7 +171,7 @@
             this.btnBan4.Name = "btnBan4";
             this.btnBan4.Size = new System.Drawing.Size(80, 80);
             this.btnBan4.TabIndex = 3;
-            this.btnBan4.Text = "btnBan4";
+            this.btnBan4.Text = "Bàn 4";
             this.btnBan4.UseVisualStyleBackColor = true;
             this.btnBan4.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -177,7 +181,7 @@
             this.btnBan3.Name = "btnBan3";
             this.btnBan3.Size = new System.Drawing.Size(80, 80);
             this.btnBan3.TabIndex = 2;
-            this.btnBan3.Text = "btnBan3";
+            this.btnBan3.Text = "Bàn 3";
             this.btnBan3.UseVisualStyleBackColor = true;
             this.btnBan3.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -187,7 +191,7 @@
             this.btnBan2.Name = "btnBan2";
             this.btnBan2.Size = new System.Drawing.Size(80, 80);
             this.btnBan2.TabIndex = 1;
-            this.btnBan2.Text = "btnBan2";
+            this.btnBan2.Text = "Bàn 2";
             this.btnBan2.UseVisualStyleBackColor = true;
             this.btnBan2.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -197,7 +201,7 @@
             this.btnBan1.Name = "btnBan1";
             this.btnBan1.Size = new System.Drawing.Size(80, 80);
             this.btnBan1.TabIndex = 0;
-            this.btnBan1.Text = "btnBan1";
+            this.btnBan1.Text = "Bàn 1";
             this.btnBan1.UseVisualStyleBackColor = true;
             this.btnBan1.Click += new System.EventHandler(this.Ban_Click);
             // 
@@ -256,10 +260,11 @@
             // lbBan
             // 
             this.lbBan.AutoSize = true;
-            this.lbBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBan.ForeColor = System.Drawing.Color.Red;
             this.lbBan.Location = new System.Drawing.Point(3, 8);
             this.lbBan.Name = "lbBan";
-            this.lbBan.Size = new System.Drawing.Size(25, 20);
+            this.lbBan.Size = new System.Drawing.Size(30, 24);
             this.lbBan.TabIndex = 0;
             this.lbBan.Text = "....";
             // 
@@ -320,7 +325,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(775, 480);
+            this.btnThanhToan.Location = new System.Drawing.Point(775, 499);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(66, 43);
             this.btnThanhToan.TabIndex = 4;
@@ -328,18 +333,20 @@
             this.btnThanhToan.UseVisualStyleBackColor = true;
             this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
-            // bntGiam
+            // btnGiam
             // 
-            this.bntGiam.Location = new System.Drawing.Point(777, 224);
-            this.bntGiam.Name = "bntGiam";
-            this.bntGiam.Size = new System.Drawing.Size(66, 29);
-            this.bntGiam.TabIndex = 5;
-            this.bntGiam.Text = "Giảm >>";
-            this.bntGiam.UseVisualStyleBackColor = true;
-            this.bntGiam.Click += new System.EventHandler(this.bntGiam_Click);
+            this.btnGiam.Location = new System.Drawing.Point(777, 224);
+            this.btnGiam.Name = "btnGiam";
+            this.btnGiam.Size = new System.Drawing.Size(66, 29);
+            this.btnGiam.TabIndex = 5;
+            this.btnGiam.Text = "Giảm >>";
+            this.btnGiam.UseVisualStyleBackColor = true;
+            this.btnGiam.Click += new System.EventHandler(this.btnGiam_Click);
             // 
             // btnInPhieu
             // 
+            this.btnInPhieu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInPhieu.ForeColor = System.Drawing.Color.Black;
             this.btnInPhieu.Location = new System.Drawing.Point(775, 379);
             this.btnInPhieu.Name = "btnInPhieu";
             this.btnInPhieu.Size = new System.Drawing.Size(66, 65);
@@ -376,15 +383,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Tổng tiền :";
             // 
-            // lbAccount
-            // 
-            this.lbAccount.AutoSize = true;
-            this.lbAccount.Location = new System.Drawing.Point(11, 553);
-            this.lbAccount.Name = "lbAccount";
-            this.lbAccount.Size = new System.Drawing.Size(56, 13);
-            this.lbAccount.TabIndex = 8;
-            this.lbAccount.Text = "Account : ";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -396,19 +394,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1184, 581);
-            this.Controls.Add(this.lbAccount);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.btnInPhieu);
-            this.Controls.Add(this.bntGiam);
+            this.Controls.Add(this.btnGiam);
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form_Order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Order_FormClosing);
             this.Load += new System.EventHandler(this.Form_Order_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
@@ -419,7 +418,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -432,7 +430,7 @@
         private System.Windows.Forms.ListView lsvBill;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnThanhToan;
-        private System.Windows.Forms.Button bntGiam;
+        private System.Windows.Forms.Button btnGiam;
         private System.Windows.Forms.Button btnInPhieu;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label5;
@@ -456,7 +454,6 @@
         private System.Windows.Forms.Button btnBan3;
         private System.Windows.Forms.Button btnBan2;
         private System.Windows.Forms.Button btnBan1;
-        private System.Windows.Forms.Label lbAccount;
         private System.Windows.Forms.ColumnHeader MaSP;
         private System.Windows.Forms.ColumnHeader MaSPBill;
         private System.Windows.Forms.Timer timer1;

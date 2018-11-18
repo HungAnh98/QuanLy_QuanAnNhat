@@ -14,7 +14,7 @@ namespace QuanLyQuanAnNhat
 {
     public partial class Form_Order : Form
     {
-            
+
         HoaDon_BUS hdBus = new HoaDon_BUS();
         Ban_BUS banBus = new Ban_BUS();
         HoaDonChiTiet_BUS hdctBus = new HoaDonChiTiet_BUS();
@@ -32,18 +32,20 @@ namespace QuanLyQuanAnNhat
 
         int soBan = 0;
         int hoaDon = -1;
+        int MaNV;
         int Tong;
         bool tinhTrangBan;
         bool alow = false;
 
 
-        public Form_Order()
+        public Form_Order(int maNV)
         {
             InitializeComponent();
+            MaNV = maNV;
         }
         private void Form_Order_Load(object sender, EventArgs e)
         {
-
+            
             daTableMenu = spBus.GetThongTinMenu();
             foreach (DataRow row in daTableMenu.Rows)
             {
@@ -53,14 +55,14 @@ namespace QuanLyQuanAnNhat
                 item.SubItems.Add(row["MaSP"].ToString());
                 lstMenu.Items.Add(item);
             }
-            foreach(Button bt in tabPage2.Controls)
+            foreach (Button bt in tabPage2.Controls)
             {
                 int id = int.Parse(bt.Name.Substring(6));
                 tinhTrangBan = Convert.ToBoolean(banBus.GetTinhTrangBanByIDBan(id)["TinhTrang"]);
                 if (tinhTrangBan == false)
                     bt.BackColor = Color.Green;
                 else
-                    bt.BackColor = Color.Red;              
+                    bt.BackColor = Color.Red;
             }
 
         }
@@ -101,6 +103,10 @@ namespace QuanLyQuanAnNhat
                 }
             }
         }
+        private void btnGiam_Click(object sender, EventArgs e)
+        {
+
+        }
         private void Ban_Click(object sender, EventArgs e)
         {
             lsvBill.Items.Clear();
@@ -113,6 +119,7 @@ namespace QuanLyQuanAnNhat
             {
                 btnThem.Enabled = true;
                 btnInPhieu.Enabled = true;
+                btnGiam.Enabled = true;
                 btnThanhToan.Enabled = false;
                 Tong = 0;
                 alow = true;
@@ -121,6 +128,7 @@ namespace QuanLyQuanAnNhat
             else
             {
                 btnThem.Enabled = false;
+                btnGiam.Enabled = false;
                 btnInPhieu.Enabled = false;
                 btnThanhToan.Enabled = true;
                 alow = false;
@@ -145,10 +153,10 @@ namespace QuanLyQuanAnNhat
         private void btnInPhieu_Click(object sender, EventArgs e)
         {
             int count = lsvBill.Items.Count;
-            if (alow ==true && count > 0)
+            if (alow == true && count > 0)
             {
-                E_hoaDon = new HoaDon(hoaDon, 2, soBan, Tong, DateTime.Now, false);
-                hdBus.ThemHoaDon(E_hoaDon,TableHoaDon);
+                E_hoaDon = new HoaDon(hoaDon, MaNV, soBan, Tong, DateTime.Now, false);
+                hdBus.ThemHoaDon(E_hoaDon, TableHoaDon);
                 hdBus.SaveHoaDon(TableHoaDon);
                 foreach (ListViewItem item in lsvBill.Items)
                 {
@@ -162,27 +170,30 @@ namespace QuanLyQuanAnNhat
                 E_Ban = new Ban(soBan, true);
                 banBus.CapNhatTinhTrangBan(E_Ban, TableBan);
                 banBus.SaveBan(TableBan);
+                btnInPhieu.Enabled = false;
+                btnThem.Enabled = false;
+                btnGiam.Enabled = false;
+                btnThanhToan.Enabled = true;
                 alow = false;
             }
         }
-        private void bntGiam_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            tinhTrangBan = Convert.ToBoolean(banBus.GetTinhTrangBanByIDBan(soBan)["TinhTrang"]);
-            if (tinhTrangBan == true)
+            if (soBan != 0)
             {
-                E_hoaDon = new HoaDon(hoaDon, 2, soBan, Tong, DateTime.Now, true);
-                hdBus.CapNhatTinhTrangHoaDon(E_hoaDon, TableHoaDon);
-                hdBus.SaveHoaDon(TableHoaDon);
+                tinhTrangBan = Convert.ToBoolean(banBus.GetTinhTrangBanByIDBan(soBan)["TinhTrang"]);
+                if (tinhTrangBan == true)
+                {
+                    E_hoaDon = new HoaDon(hoaDon, MaNV, soBan, Tong, DateTime.Now, true);
+                    hdBus.CapNhatTinhTrangHoaDon(E_hoaDon, TableHoaDon);
+                    hdBus.SaveHoaDon(TableHoaDon);
 
-                E_Ban = new Ban(soBan, false);
-                banBus.CapNhatTinhTrangBan(E_Ban, TableBan);
-                banBus.SaveBan(TableBan);
+                    E_Ban = new Ban(soBan, false);
+                    banBus.CapNhatTinhTrangBan(E_Ban, TableBan);
+                    banBus.SaveBan(TableBan);
 
-                lsvBill.Items.Clear();
+                    lsvBill.Items.Clear();
+                }
             }
         }
 
@@ -196,6 +207,22 @@ namespace QuanLyQuanAnNhat
                     bt.BackColor = Color.Green;
                 else
                     bt.BackColor = Color.Red;
+            }
+        }
+        private void Form_Order_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bool completed = true;
+            foreach (Button bt in tabPage2.Controls)
+            {
+                int id = int.Parse(bt.Name.Substring(6));
+                tinhTrangBan = Convert.ToBoolean(banBus.GetTinhTrangBanByIDBan(id)["TinhTrang"]);
+                if (tinhTrangBan == true)
+                    completed = false;
+            }
+            if (completed == false)
+            {
+                MessageBox.Show("Có hóa đơn chưa được thanh toán", "Thông báo", MessageBoxButtons.OK);
+                e.Cancel = true;
             }
         }
     }

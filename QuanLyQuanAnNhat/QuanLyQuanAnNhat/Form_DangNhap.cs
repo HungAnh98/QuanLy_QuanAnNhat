@@ -20,7 +20,8 @@ namespace QuanLyQuanAnNhat
             InitializeComponent();
 
         }
-
+        public string ChucVu { get; set; }
+        public int MaNV { get; set; }
         Account_BUS account_BUS;
         private void Form_DangNhap_Load(object sender, EventArgs e)
         {
@@ -39,7 +40,9 @@ namespace QuanLyQuanAnNhat
             else if (account_BUS.login(acc))
             {
                 DataRow dataRow = new Account_BUS().GetThongTinAccountByUserName(acc.UserName);
-                
+                MaNV = int.Parse(dataRow["MaNV"].ToString());
+                DataRow row = new NhanVien_BUS().GetThongTinNhanVienByID(MaNV);
+                ChucVu = row["ChucVu"].ToString();
                 this.DialogResult = DialogResult.OK;
             }
             else
