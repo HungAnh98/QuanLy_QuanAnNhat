@@ -31,7 +31,7 @@ namespace QuanLyQuanAnNhat
                 ChucVu = frmDN.ChucVu.Trim();
                 this.Visible = true;
             }
-            MessageBox.Show(ChucVu);
+            
         }
         private void tlblOrder_Click(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@ namespace QuanLyQuanAnNhat
                 frmOrder.ShowDialog();
             }
             else
-                MessageBox.Show("Phần này chỉ dành cho nhân viên", "ThôngBáo");
+                MessageBox.Show("Phần này chỉ dành cho nhân viên", "Thông Báo");
         }
 
         private void tlblNhanVien_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace QuanLyQuanAnNhat
                 frmOrder.ShowDialog();
             }
             else
-                MessageBox.Show("Phần này chỉ dành cho quản lý , nhân viên thì ra chỗ khác chơi", "ThôngBáo");
+                MessageBox.Show("Phần này chỉ dành cho quản lý , nhân viên thì ra chỗ khác chơi", "Thông Báo");
         }
 
         private void tlblHangHoa_Click(object sender, EventArgs e)
@@ -63,8 +63,22 @@ namespace QuanLyQuanAnNhat
                 frmOrder.ShowDialog();
             }
             else
-                MessageBox.Show("Phần này chỉ dành cho quản lý , nhân viên thì ra chỗ khác chơi", "ThôngBáo");
+                MessageBox.Show("Phần này chỉ dành cho quản lý , nhân viên thì ra chỗ khác chơi", "Thông Báo");
         }
 
+        private void tlblSignOut_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Form_DangNhap frmDN = new Form_DangNhap();
+            frmDN.ShowDialog();
+            DialogResult result = frmDN.DialogResult;
+            if (result == DialogResult.OK)
+            {
+                MaNV = frmDN.MaNV;
+                ChucVu = frmDN.ChucVu.Trim();
+                this.Visible = true;
+            }
+            
+        }
     }
 }

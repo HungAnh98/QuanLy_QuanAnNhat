@@ -37,8 +37,11 @@ namespace DAO
         }
         public void Del(int row, DataTable dt)
         {
-            if(row >=0 && row <= dt.Rows.Count)
+            if (row >= 0 && row <= dt.Rows.Count)
+            {
                 dt.Rows[row].Delete();
+                Save(dt, "SanPham");
+            }
         }
         public void Edit(SanPham sp, DataTable dt, int index)
         {

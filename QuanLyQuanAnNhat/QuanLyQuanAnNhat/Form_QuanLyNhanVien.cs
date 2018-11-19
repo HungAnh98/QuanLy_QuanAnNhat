@@ -47,11 +47,14 @@ namespace QuanLyQuanAnNhat
         private NhanVien getInfo()
         {
         
-                int maNV;
-                string ten, gioiTinh, chucVu, diaChi;
-                DateTime ngaySinh;
-                int sdt;
-                int luong;
+            int maNV;
+            string ten, gioiTinh, chucVu, diaChi;
+            DateTime ngaySinh;
+            int sdt;
+            int luong;
+            NhanVien nv;
+            try
+            {
                 if (flag == 0)
                 {
                     maNV = int.Parse(txtMaNV.Text);
@@ -66,8 +69,15 @@ namespace QuanLyQuanAnNhat
                 luong = int.Parse(txtLuong.Text);
                 diaChi = txtDiaChi.Text;
 
-                NhanVien nv = new NhanVien(maNV, ten, gioiTinh, ngaySinh, chucVu, luong, sdt, diaChi);
 
+
+                nv = new NhanVien(maNV, ten, gioiTinh, ngaySinh, chucVu, luong, sdt, diaChi);
+                
+            }
+            catch (FormatException)
+            {
+                nv = null;
+            }
             return nv;
         }
 
@@ -85,8 +95,11 @@ namespace QuanLyQuanAnNhat
                     if((cbGioiTinh.Text.Trim() == "Nam" || cbGioiTinh.Text.Trim() == "Nữ") && (txtChucVu.Text.Trim() == "NV" || txtChucVu.Text.Trim() == "QL"))
                     {
                         flag = 1;
-                        pr.AddEmp(getInfo(), dt);
-                        clear();
+                        if (getInfo() != null)
+                        {
+                            pr.AddEmp(getInfo(), dt);
+                            clear();
+                        }
                     }
                     else
                     {
@@ -106,15 +119,16 @@ namespace QuanLyQuanAnNhat
         {
             int col = e.ColumnIndex;
             int row = e.RowIndex;
-            if (dgvNhanVien.Columns[col] is DataGridViewButtonColumn && dgvNhanVien.Columns[col].Name == "xoa")
+            if (row >= 0)
             {
-                if (row >= 0 && row < dgvNhanVien.Rows.Count)
+                if (dgvNhanVien.Columns[col] is DataGridViewButtonColumn && dgvNhanVien.Columns[col].Name == "xoa")
+                { 
                     pr.Del(row, dt);
-                clear();
-                dgvNhanVien.DataSource = dt;
+                    clear();
+                    dgvNhanVien.DataSource = dt;
+                }
             }
         }
-
         private void btnEdit_Click(object sender, EventArgs e)
         {
 
@@ -145,7 +159,6 @@ namespace QuanLyQuanAnNhat
                 MessageBox.Show("sai nha"); ;
             }     
         }
-
         private void dgvNhanVien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
@@ -169,8 +182,7 @@ namespace QuanLyQuanAnNhat
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
-            {
-                
+            {          
                 pr.Save(dt, "NhanVien");
             }
             catch (SqlException)

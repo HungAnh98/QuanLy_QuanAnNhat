@@ -49,18 +49,26 @@ namespace QuanLyQuanAnNhat
 
         private SanPham getInfo()
         {
+            SanPham sp;
             string tenSP, donVi;
             int giaBan, maSP;
-            if (flag == 0)
+            try
             {
-                maSP = int.Parse(txtMaSP.Text);
+                if (flag == 0)
+                {
+                    maSP = int.Parse(txtMaSP.Text);
+                }
+                else
+                    maSP = (int.Parse(dgvSanPham.Rows[dgvSanPham.Rows.Count - 1].Cells["MaSP"].Value.ToString())) + 1;
+                tenSP = txtTenSP.Text;
+                donVi = txtDonVi.Text;
+                giaBan = int.Parse(txtGiaBan.Text);
+                sp = new SanPham(maSP, tenSP, donVi, giaBan);
             }
-            else
-                maSP = (int.Parse(dgvSanPham.Rows[dgvSanPham.Rows.Count - 1].Cells["MaSP"].Value.ToString())) + 1;
-            tenSP = txtTenSP.Text;
-            donVi = txtDonVi.Text;
-            giaBan = int.Parse(txtGiaBan.Text);
-            SanPham sp = new SanPham(maSP, tenSP, donVi, giaBan);
+            catch (FormatException)
+            {
+                sp = null;
+            }
             return sp;
         }
 
@@ -76,27 +84,40 @@ namespace QuanLyQuanAnNhat
             int row = e.RowIndex;
             if (dgvSanPham.Columns[col] is DataGridViewButtonColumn && dgvSanPham.Columns[col].Name == "xoa")
             {
-                if (row >= 0 && row < dgvSanPham.Rows.Count)
-                    product.DelProduct_Bus(row, dt);
-                dgvSanPham.ClearSelection();
-                clear();
-                dgvSanPham.DataSource = dt;
+                if (MessageBox.Show("Bạn chắc chắn muốn xóa sản phẩm này", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                {
+                    try
+                    {
+                        product.DelProduct_Bus(row, dt);
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Không thể xóa món ăn này vì món ăn này đã xuất hiện trong một số hóa đơn");
+                    }
+                    dgvSanPham.ClearSelection();
+                    clear();
+                    dgvSanPham.DataSource = dt;
+                }
             }
+            
         }
 
         private void dgvSanPham_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int col = e.ColumnIndex;
             int row = index = e.RowIndex;
-            if (dgvSanPham.Columns[col] is DataGridViewTextBoxColumn && dgvSanPham.Columns[col].Name != "xoa")
+            if (row >= 0)
             {
-                txtMaSP.Text = dgvSanPham.Rows[row].Cells["MaSP"].Value.ToString();
+                if (dgvSanPham.Columns[col] is DataGridViewTextBoxColumn && dgvSanPham.Columns[col].Name != "xoa")
+                {
+                    txtMaSP.Text = dgvSanPham.Rows[row].Cells["MaSP"].Value.ToString();
 
-                txtTenSP.Text = dgvSanPham.Rows[row].Cells["Ten"].Value.ToString();
+                    txtTenSP.Text = dgvSanPham.Rows[row].Cells["Ten"].Value.ToString();
 
-                txtDonVi.Text = dgvSanPham.Rows[row].Cells["DonVi"].Value.ToString();
+                    txtDonVi.Text = dgvSanPham.Rows[row].Cells["DonVi"].Value.ToString();
 
-                txtGiaBan.Text = dgvSanPham.Rows[row].Cells["GiaBan"].Value.ToString();
+                    txtGiaBan.Text = dgvSanPham.Rows[row].Cells["GiaBan"].Value.ToString();
+                }
             }
 
         }

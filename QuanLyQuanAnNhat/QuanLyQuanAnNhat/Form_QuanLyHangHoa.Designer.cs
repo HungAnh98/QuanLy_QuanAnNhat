@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_QuanLyHangHoa));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -40,8 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaSP = new System.Windows.Forms.TextBox();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonVi = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +68,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 191);
             this.panel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.SystemColors.Control;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(454, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 26);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Giá bán";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(454, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 26);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Đơn vị";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -123,6 +145,7 @@
             // 
             this.txtDonVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDonVi.Location = new System.Drawing.Point(604, 30);
+            this.txtDonVi.MaxLength = 50;
             this.txtDonVi.Name = "txtDonVi";
             this.txtDonVi.Size = new System.Drawing.Size(184, 26);
             this.txtDonVi.TabIndex = 7;
@@ -131,6 +154,7 @@
             // 
             this.txtGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaBan.Location = new System.Drawing.Point(604, 105);
+            this.txtGiaBan.MaxLength = 11;
             this.txtGiaBan.Name = "txtGiaBan";
             this.txtGiaBan.Size = new System.Drawing.Size(184, 26);
             this.txtGiaBan.TabIndex = 4;
@@ -140,6 +164,7 @@
             // 
             this.txtTenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenSP.Location = new System.Drawing.Point(176, 105);
+            this.txtTenSP.MaxLength = 50;
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(194, 26);
             this.txtTenSP.TabIndex = 3;
@@ -160,6 +185,7 @@
             this.txtMaSP.Enabled = false;
             this.txtMaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSP.Location = new System.Drawing.Point(176, 30);
+            this.txtMaSP.MaxLength = 11;
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.Size = new System.Drawing.Size(194, 26);
             this.txtMaSP.TabIndex = 0;
@@ -183,33 +209,12 @@
             this.dgvSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellContentClick);
             this.dgvSanPham.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSanPham_CellMouseClick);
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(454, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 26);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Đơn vị";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(454, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 26);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Giá bán";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MaSP
             // 
             this.MaSP.DataPropertyName = "MaSP";
             this.MaSP.HeaderText = "Mã sản phẩm";
             this.MaSP.Name = "MaSP";
+            this.MaSP.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.MaSP.Width = 150;
             // 
             // Ten
@@ -217,6 +222,7 @@
             this.Ten.DataPropertyName = "Ten";
             this.Ten.HeaderText = "Tên sản phẩm";
             this.Ten.Name = "Ten";
+            this.Ten.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Ten.Width = 250;
             // 
             // DonVi
@@ -224,12 +230,14 @@
             this.DonVi.DataPropertyName = "DonVi";
             this.DonVi.HeaderText = "Đơn Vị";
             this.DonVi.Name = "DonVi";
+            this.DonVi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // GiaBan
             // 
             this.GiaBan.DataPropertyName = "GiaBan";
             this.GiaBan.HeaderText = "Giá Bán";
             this.GiaBan.Name = "GiaBan";
+            this.GiaBan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.GiaBan.Width = 220;
             // 
             // xoa

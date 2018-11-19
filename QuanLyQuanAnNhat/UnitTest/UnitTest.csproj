@@ -65,6 +65,10 @@
       <Project>{827ac86d-7bec-4404-b9c4-5dfdea540763}</Project>
       <Name>DAO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{f517a625-990d-4e4f-a4c1-ca28344be5fc}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\QuanLyQuanAnNhat\AVC_QuanLyQuanAnNhat.csproj">
       <Project>{29accd5d-26a9-4f0d-b63b-a3d12c3259ee}</Project>
       <Name>AVC_QuanLyQuanAnNhat</Name>
