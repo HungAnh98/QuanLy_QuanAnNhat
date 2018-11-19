@@ -83,7 +83,8 @@ namespace QuanLyQuanAnNhat
 
         private void tlblBaoCao_Click(object sender, EventArgs e)
         {
-
+            Form_BaoCao frmBC = new Form_BaoCao();
+            frmBC.ShowDialog();
         }
     }
 }

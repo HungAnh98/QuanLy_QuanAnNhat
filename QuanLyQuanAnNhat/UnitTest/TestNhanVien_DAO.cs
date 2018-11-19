@@ -16,7 +16,7 @@ namespace UnitTest
         public void TestGetTable()
         {
             DataTable tb = nvd.getEmployeeTable();
-            int expected = 2;
+            int expected = 3;
             int actual = tb.Rows.Count;
             Assert.AreEqual(expected, actual);
         }
@@ -24,9 +24,9 @@ namespace UnitTest
         public void TestAddEmpl()
         {
             DataTable tb = nvd.getEmployeeTable();
-            NhanVien nv = new NhanVien(3, "Châu", "Nữ", new DateTime(1998, 5, 1), "NV", 3000000, 016789025, "");
+            NhanVien nv = new NhanVien(4, "Châu", "Nữ", new DateTime(1998, 5, 1), "NV", 3000000, 016789025, "");
             nvd.addEml(nv, tb);
-            int expected = 3;
+            int expected = 4;
             int actual = tb.Rows.Count;
             Assert.AreEqual(expected, actual);
         }
@@ -36,7 +36,7 @@ namespace UnitTest
             DataTable tb = nvd.getEmployeeTable();
             NhanVien nv = new NhanVien(2, "Châu", "Nữ", new DateTime(1998, 5, 1), "NV", 3000000, 016789025, "");
             nvd.addEml(nv, tb);
-            int expected = 2;
+            int expected = 3;
             int actual = tb.Rows.Count;
             Assert.AreEqual(expected, actual);
         }
@@ -46,7 +46,7 @@ namespace UnitTest
             DataTable tb = nvd.getEmployeeTable();
             NhanVien nv = new NhanVien(-2, "Châu", "Nữ", new DateTime(1998, 5, 1), "NV", 3000000, 016789025, "");
             nvd.addEml(nv, tb);
-            int expected = 2;
+            int expected = 3;
             int actual = tb.Rows.Count;
             Assert.AreEqual(expected, actual);
         }

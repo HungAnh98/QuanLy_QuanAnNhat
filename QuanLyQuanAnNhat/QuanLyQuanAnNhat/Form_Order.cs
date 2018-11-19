@@ -45,7 +45,10 @@ namespace QuanLyQuanAnNhat
         }
         private void Form_Order_Load(object sender, EventArgs e)
         {
-            
+            btnThem.Enabled = false;
+            btnGiam.Enabled = false;
+            btnInPhieu.Enabled = false;
+            btnThanhToan.Enabled = false;
             daTableMenu = spBus.GetThongTinMenu();
             foreach (DataRow row in daTableMenu.Rows)
             {
@@ -178,6 +181,7 @@ namespace QuanLyQuanAnNhat
                 E_hoaDon = new HoaDon(hoaDon, MaNV, soBan, Tong, DateTime.Now, false);
                 hdBus.ThemHoaDon(E_hoaDon, TableHoaDon);
                 hdBus.SaveHoaDon(TableHoaDon);
+
                 foreach (ListViewItem item in lsvBill.Items)
                 {
                     string maSP = item.SubItems[4].Text;
@@ -190,6 +194,7 @@ namespace QuanLyQuanAnNhat
                 E_Ban = new Ban(soBan, true);
                 banBus.CapNhatTinhTrangBan(E_Ban, TableBan);
                 banBus.SaveBan(TableBan);
+
                 btnInPhieu.Enabled = false;
                 btnThem.Enabled = false;
                 btnGiam.Enabled = false;
@@ -214,6 +219,7 @@ namespace QuanLyQuanAnNhat
 
                     lsvBill.Items.Clear();
                 }
+                lbTongTien.Text = "0";
             }
         }
 

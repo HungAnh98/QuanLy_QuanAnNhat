@@ -21,7 +21,7 @@ namespace DAO
         {
             foreach (DataRow r in dataTable.Rows)
             {
-                if ((hoaDon.MaNV == int.Parse(r["MaHD"].ToString())) || hoaDon.MaHD < 0)
+                if ((hoaDon.MaHD == int.Parse(r["MaHD"].ToString())) || hoaDon.MaHD < 0)
                     return;
             }
             DataRow row = dataTable.NewRow();
@@ -50,6 +50,33 @@ namespace DAO
         public void SaveHoaDon(DataTable dataTable)
         {
             Save(dataTable,"HoaDon");
+        }
+
+        public DataTable GetThongTinHoaDonByIDNhanVienTrongThang(int idNV)
+        {
+            try
+            {
+                string sql = "SELECT * FROM HoaDon WHERE MaNV = " + idNV + " AND MONTH(ThoiGian) = " + DateTime.Now.Month;
+                return GetDataTable(sql);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
+        public DataTable GetThongTinHoaDonTrongThang()
+        {
+            try
+            {
+                string sql = "SELECT * FROM HoaDon WHERE MONTH(ThoiGian) = " + DateTime.Now.Month;
+                return GetDataTable(sql);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

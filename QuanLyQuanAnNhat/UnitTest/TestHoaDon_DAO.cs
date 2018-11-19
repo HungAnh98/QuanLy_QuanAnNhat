@@ -14,7 +14,7 @@ namespace UnitTest
         public void TestGetTable()
         {
             DataTable tb = hdd.GetTableHoaDon();
-            int expected = 14;
+            int expected = 8;
             int actual = tb.Rows.Count;
             Assert.AreEqual(expected, actual);
         }

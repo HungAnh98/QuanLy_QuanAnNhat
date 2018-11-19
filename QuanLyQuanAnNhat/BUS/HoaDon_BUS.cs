@@ -36,6 +36,31 @@ namespace BUS
                 throw ex;
             }
         }
+        public DataTable GetThongTinHoaDonByIDNhanVienTrongThang(int idBan)
+        {
+            try
+            {
+                return new HoaDon_DAO().GetThongTinHoaDonByIDNhanVienTrongThang(idBan);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
+        public DataTable GetThongTinHoaDonTrongThang()
+        {
+            try
+            {
+                return new HoaDon_DAO().GetThongTinHoaDonTrongThang();
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public int GetMaHoaDonLonNhat()
         {
             DataTable da = new HoaDon_DAO().GetTableHoaDon();
