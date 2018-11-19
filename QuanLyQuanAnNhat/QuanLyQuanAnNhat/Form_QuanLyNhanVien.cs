@@ -39,14 +39,11 @@ namespace QuanLyQuanAnNhat
         }
         private void clear()
         {
-
             txtSDT.Text = txtTenNV.Text = txtMaNV.Text = txtLuong.Text = txtChucVu.Text = "";
             cbGioiTinh.Text = null;
             txtTenNV.Focus();
             dateTimePicker1.Value = DateTime.Parse("1/1/1990");
-
         }
-
         private NhanVien getInfo()
         {
         
@@ -142,14 +139,11 @@ namespace QuanLyQuanAnNhat
                         return;
                     }
                 }
-
             }
             catch (SqlException)
             {
                 MessageBox.Show("sai nha"); ;
-            }
-            
-          
+            }     
         }
 
         private void dgvNhanVien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

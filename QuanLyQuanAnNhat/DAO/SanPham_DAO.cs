@@ -11,6 +11,7 @@ namespace DAO
 {
     public class SanPham_DAO : Dataprovider
     {
+        // possible
         public DataTable GetTableProduct()
         {
             try
@@ -23,6 +24,8 @@ namespace DAO
                 throw ex;
             }
         }
+
+        // possible
         public void AddProduct(SanPham sp, DataTable tb)
         {
             DataRow row = tb.NewRow();
@@ -31,25 +34,21 @@ namespace DAO
             row["DonVi"] = sp.DonVi;
             row["GiaBan"] = sp.GiaBan;
             tb.Rows.Add(row);
-
         }
+
+
         public void Del(int row, DataTable dt)
         {
-
             dt.Rows[row].Delete();
         }
         public void Edit(SanPham sp, DataTable dt, int index)
         {
-
             if (dt.Rows[index]["MaSP"].ToString() == sp.MaSP.ToString())
             {
                 dt.Rows[index].SetField("Ten", sp.Ten.ToString());
                 dt.Rows[index].SetField("DonVi", sp.DonVi.ToString());
                 dt.Rows[index].SetField("GiaBan", sp.GiaBan.ToString());
             }
-
-
-
         }
     }
 }

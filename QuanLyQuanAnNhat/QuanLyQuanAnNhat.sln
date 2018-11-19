@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{F517A625-990D-4E4F-A4C1-CA28344BE5FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{C55E19DD-24B6-4293-A185-066A31D83296}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F517A625-990D-4E4F-A4C1-CA28344BE5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F517A625-990D-4E4F-A4C1-CA28344BE5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F517A625-990D-4E4F-A4C1-CA28344BE5FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55E19DD-24B6-4293-A185-066A31D83296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55E19DD-24B6-4293-A185-066A31D83296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55E19DD-24B6-4293-A185-066A31D83296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55E19DD-24B6-4293-A185-066A31D83296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

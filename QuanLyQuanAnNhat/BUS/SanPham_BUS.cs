@@ -44,7 +44,6 @@ namespace BUS
             product.Del(row, dt);
         }
 
-
         public void Edit_Bus(SanPham sp, DataTable dt, int index)
         {
             product.Edit(sp, dt, index);

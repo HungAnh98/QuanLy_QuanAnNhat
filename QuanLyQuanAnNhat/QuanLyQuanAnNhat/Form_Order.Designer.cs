@@ -224,6 +224,7 @@
             this.MaSPBill});
             this.lsvBill.FullRowSelect = true;
             this.lsvBill.GridLines = true;
+            this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(0, 30);
             this.lsvBill.MultiSelect = false;
             this.lsvBill.Name = "lsvBill";

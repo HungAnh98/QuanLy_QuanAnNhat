@@ -104,8 +104,26 @@ namespace QuanLyQuanAnNhat
             }
         }
         private void btnGiam_Click(object sender, EventArgs e)
-        {
-
+        { 
+            foreach (ListViewItem it in lsvBill.Items)
+            {
+                if(it.Selected == true)
+                {
+                    int tien = int.Parse(it.SubItems[2].Text);
+                    int soLuong = int.Parse(it.SubItems[1].Text);
+                    if (soLuong > 1)
+                    {
+                        soLuong--;                      
+                        it.SubItems[1].Text = soLuong.ToString();
+                    }
+                    else
+                    {
+                        lsvBill.Items.Remove(it);
+                    }
+                    Tong -= tien;
+                    lbTongTien.Text = Tong.ToString();
+                }
+            }
         }
         private void Ban_Click(object sender, EventArgs e)
         {
