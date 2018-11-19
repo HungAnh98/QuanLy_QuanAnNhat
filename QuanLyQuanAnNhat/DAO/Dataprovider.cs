@@ -89,22 +89,6 @@ namespace DAO
                 Disconnect();
             }
         }
-        public SqlDataReader GetTable(string sql)
-        {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = sql;
-            cmd.CommandType = CommandType.Text;
-            try
-            {
-                return (cmd.ExecuteReader());
-            }
-            catch (SqlException ex)
-            {
-
-                throw ex;
-            }
-        }
         public DataSet GetDataSet(string tenBang)
         {
             DataSet ds = new DataSet();

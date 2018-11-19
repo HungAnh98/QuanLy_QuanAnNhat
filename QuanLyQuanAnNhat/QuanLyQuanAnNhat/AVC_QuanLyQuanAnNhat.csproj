@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_BaoCao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_BaoCao.Designer.cs">
+      <DependentUpon>Form_BaoCao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_BaoCao.resx">
+      <DependentUpon>Form_BaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_DangNhap.resx">
       <DependentUpon>Form_DangNhap.cs</DependentUpon>
     </EmbeddedResource>

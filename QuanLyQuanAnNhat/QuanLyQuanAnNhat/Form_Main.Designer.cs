@@ -41,8 +41,8 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.tlblBaoCao = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.tlblSignOut = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +145,15 @@
             this.tlblBaoCao.Name = "tlblBaoCao";
             this.tlblBaoCao.Size = new System.Drawing.Size(49, 22);
             this.tlblBaoCao.Text = "Báo cáo";
+            this.tlblBaoCao.Click += new System.EventHandler(this.tlblBaoCao_Click);
+            // 
+            // tlblSignOut
+            // 
+            this.tlblSignOut.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tlblSignOut.Name = "tlblSignOut";
+            this.tlblSignOut.Size = new System.Drawing.Size(60, 22);
+            this.tlblSignOut.Text = "Đăng xuất";
+            this.tlblSignOut.Click += new System.EventHandler(this.tlblSignOut_Click);
             // 
             // toolStripButton3
             // 
@@ -155,14 +164,6 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "toolStripButton3";
-            // 
-            // tlblSignOut
-            // 
-            this.tlblSignOut.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tlblSignOut.Name = "tlblSignOut";
-            this.tlblSignOut.Size = new System.Drawing.Size(60, 22);
-            this.tlblSignOut.Text = "Đăng xuất";
-            this.tlblSignOut.Click += new System.EventHandler(this.tlblSignOut_Click);
             // 
             // Form_Main
             // 

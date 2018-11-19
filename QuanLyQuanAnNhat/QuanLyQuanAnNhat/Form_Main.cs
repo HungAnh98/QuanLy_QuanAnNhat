@@ -80,5 +80,10 @@ namespace QuanLyQuanAnNhat
             }
             
         }
+
+        private void tlblBaoCao_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

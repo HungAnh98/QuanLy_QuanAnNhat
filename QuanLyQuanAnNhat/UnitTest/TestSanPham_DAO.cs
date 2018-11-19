@@ -28,7 +28,7 @@ namespace UnitTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void TestDeleteWithRowDung()
+        public void TestDelete()
         {
             DataTable tb = sp.GetTableProduct();
             sp.Del(3, tb);
@@ -40,7 +40,7 @@ namespace UnitTest
         public void TestDeleteWithRowLon()
         {
             DataTable tb = sp.GetTableProduct();
-            sp.Del(7, tb);
+            sp.Del(4, tb);
             int expected = 3;
             int actual = tb.Rows.Count;
             Assert.AreEqual(expected, actual);
@@ -63,9 +63,92 @@ namespace UnitTest
             DataTable tb = sp.GetTableProduct();
             SanPham sanPham = new SanPham(3, "Gà luộc", "Con", 150000);
             sp.AddProduct(sanPham, tb);
-            int expected = 4;
+            int expected = 3;
             int actual = tb.Rows.Count;
             Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void TestAddProductWithMaSoAm()
+        {
+            DataTable tb = sp.GetTableProduct();
+            SanPham sanPham = new SanPham(-1, "Gà luộc", "Con", 150000);
+            sp.AddProduct(sanPham, tb);
+            int expected = 3;
+            int actual = tb.Rows.Count;
+            Assert.AreEqual(expected, actual);
+        }
+        
+
+        [TestMethod]
+        public void TestEdit()
+        {
+            DataTable tb = sp.GetTableProduct();
+            SanPham sanPham = new SanPham(1, "Gà luộc", "Con", 150000);
+            int index = 0;
+            sp.Edit(sanPham, tb, index);
+
+            int maSP, giaBan;
+            string ten, donVi;
+
+            maSP = int.Parse(tb.Rows[index]["MaSP"].ToString());
+            giaBan = int.Parse(tb.Rows[index]["GiaBan"].ToString());
+            ten = tb.Rows[index]["Ten"].ToString();
+            donVi = tb.Rows[index]["DonVi"].ToString();
+
+            Assert.AreEqual(1,maSP);
+            Assert.AreEqual("Gà luộc", ten);
+            Assert.AreEqual("Con", donVi);
+            Assert.AreEqual(150000, giaBan);
+
+        }
+
+        [TestMethod]
+        public void TestEditMaSPChuaTonTai()
+        {
+            DataTable tb = sp.GetTableProduct();
+            SanPham sanPham = new SanPham(4, "Gà luộc", "Con", 150000);
+
+            int index = 0;
+
+            sp.Edit(sanPham, tb, index);
+
+            int maSP, giaBan;
+            string ten, donVi;
+
+            maSP = int.Parse(tb.Rows[index]["MaSP"].ToString());
+            giaBan = int.Parse(tb.Rows[index]["GiaBan"].ToString());
+            ten = tb.Rows[index]["Ten"].ToString();
+            donVi = tb.Rows[index]["DonVi"].ToString();
+
+            Assert.AreEqual(1, maSP);
+            Assert.AreEqual("SuShi", ten);
+            Assert.AreEqual("miếng", donVi);
+            Assert.AreEqual(10000, giaBan);
+
+        }
+
+        [TestMethod]
+        public void TestEditMaSPKhongDungVoiIndex()
+        {
+            DataTable tb = sp.GetTableProduct();
+            SanPham sanPham = new SanPham(2, "Gà luộc", "Con", 150000);
+
+            int index = 0;
+
+            sp.Edit(sanPham, tb, index);
+
+            int maSP, giaBan;
+            string ten, donVi;
+
+            maSP = int.Parse(tb.Rows[index]["MaSP"].ToString());
+            giaBan = int.Parse(tb.Rows[index]["GiaBan"].ToString());
+            ten = tb.Rows[index]["Ten"].ToString();
+            donVi = tb.Rows[index]["DonVi"].ToString();
+
+            Assert.AreEqual(1, maSP);
+            Assert.AreEqual("SuShi", ten);
+            Assert.AreEqual("miếng", donVi);
+            Assert.AreEqual(10000, giaBan);
         }
     }
 }

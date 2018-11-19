@@ -122,11 +122,20 @@ namespace QuanLyQuanAnNhat
             if (row >= 0)
             {
                 if (dgvNhanVien.Columns[col] is DataGridViewButtonColumn && dgvNhanVien.Columns[col].Name == "xoa")
-                { 
-                    pr.Del(row, dt);
-                    clear();
-                    dgvNhanVien.DataSource = dt;
-                }
+                    if (MessageBox.Show("Bạn chắc chắn muốn xóa nhân viên này", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        try
+                        {
+                            pr.Del(row, dt);
+                        }
+                        catch (SqlException)
+                        {
+                            MessageBox.Show("Không thể xóa nhân viên này nhân viên này có liên quan đến cơ sở dữ liệu khác");
+                        }
+                        clear();
+                        dgvNhanVien.DataSource = dt;
+                    }
+                
             }
         }
         private void btnEdit_Click(object sender, EventArgs e)

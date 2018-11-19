@@ -11,6 +11,7 @@ namespace DAO
 {
     public class NhanVien_DAO : Dataprovider
     {
+        //done
         public DataTable getEmployeeTable()
         {
             try
@@ -24,8 +25,14 @@ namespace DAO
             }
         }
 
+        //done
         public void addEml(NhanVien nv, DataTable tb)
         {
+            foreach (DataRow r in tb.Rows)
+            {
+                if ((nv.MaNV == int.Parse(r["MaNV"].ToString())) || nv.MaNV < 0)
+                    return;
+            }
             DataRow row = tb.NewRow();
             row["MaNV"] = nv.MaNV;
             row["Ten"] = nv.Ten;
@@ -38,23 +45,32 @@ namespace DAO
             tb.Rows.Add(row);
 
         }
+
+        //done
         public void Del(int row, DataTable dt)
         {
-
-            dt.Rows[row].Delete();
+            if (row >= 0 && row <= dt.Rows.Count)
+            {
+                dt.Rows[row].Delete();
+                Save(dt, "NhanVien");
+            }
         }
 
+        //done
         public void EditEm(NhanVien nv, DataTable dt, int index)
         {
-            if (dt.Rows[index]["MaNV"].ToString() == nv.MaNV.ToString())
+            if (index >= 0 && index < dt.Rows.Count)
             {
-                dt.Rows[index].SetField("Ten", nv.Ten.ToString());
-                dt.Rows[index].SetField("GioiTinh", nv.GioiTinh.ToString());
-                dt.Rows[index].SetField("NgaySinh", nv.NgaySinh.ToString());
-                dt.Rows[index].SetField("ChucVu", nv.ChucVu.ToString());
-                dt.Rows[index].SetField("Luong", nv.Luong.ToString());
-                dt.Rows[index].SetField("SDT", nv.Sdt.ToString());
-                dt.Rows[index].SetField("DiaChi", nv.DiaChi.ToString());
+                if (dt.Rows[index]["MaNV"].ToString() == nv.MaNV.ToString())
+                {
+                    dt.Rows[index].SetField("Ten", nv.Ten.ToString());
+                    dt.Rows[index].SetField("GioiTinh", nv.GioiTinh.ToString());
+                    dt.Rows[index].SetField("NgaySinh", nv.NgaySinh.ToString());
+                    dt.Rows[index].SetField("ChucVu", nv.ChucVu.ToString());
+                    dt.Rows[index].SetField("Luong", nv.Luong.ToString());
+                    dt.Rows[index].SetField("SDT", nv.Sdt.ToString());
+                    dt.Rows[index].SetField("DiaChi", nv.DiaChi.ToString());
+                }
             }
         }
     }

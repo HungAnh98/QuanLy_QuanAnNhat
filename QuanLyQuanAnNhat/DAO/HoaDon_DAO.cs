@@ -11,6 +11,7 @@ namespace DAO
 {
     public class HoaDon_DAO:Dataprovider
     {
+        //done
         public DataTable GetTableHoaDon()
         {
             return GetDataSet("HoaDon").Tables[0];
@@ -18,6 +19,11 @@ namespace DAO
 
         public void ThemHoaDon(HoaDon hoaDon,DataTable dataTable)
         {
+            foreach (DataRow r in dataTable.Rows)
+            {
+                if ((hoaDon.MaNV == int.Parse(r["MaHD"].ToString())) || hoaDon.MaHD < 0)
+                    return;
+            }
             DataRow row = dataTable.NewRow();
             row["MaHD"] = hoaDon.MaHD;
             row["MaNV"] = hoaDon.MaNV;
@@ -27,6 +33,7 @@ namespace DAO
             row["TinhTrang"] = hoaDon.TinhTrang;
             dataTable.Rows.Add(row);
         }
+
 
         public void CapNhatTinhTrangHoaDon(HoaDon hoaDon, DataTable dataTable)
         {
@@ -39,6 +46,7 @@ namespace DAO
             }
         }
 
+        //done
         public void SaveHoaDon(DataTable dataTable)
         {
             Save(dataTable,"HoaDon");

@@ -17,8 +17,6 @@ namespace BUS
         {
             try
             {
-
-                //em = new NhanVien_DAO();
                 return em.getEmployeeTable();
             }
             catch (SqlException ex)
@@ -30,17 +28,11 @@ namespace BUS
 
         public void AddEmp(NhanVien nv, DataTable dt)
         {
-
-
             em.addEml(nv, dt);
-
-
-
         }
 
         public void Del(int row, DataTable dt)
         {
-
             em.Del(row, dt);
         }
 

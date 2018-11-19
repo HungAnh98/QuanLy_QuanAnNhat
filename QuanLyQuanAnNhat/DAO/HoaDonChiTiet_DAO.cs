@@ -32,6 +32,7 @@ namespace DAO
             string sql = "SELECT * FROM HoaDonChiTiet WHERE MaHD = " + MaHD;
             return GetDataTable(sql);
         }
+
         public void SaveHoaDonChiTiet(DataTable dataTable)
         {
             try
@@ -43,6 +44,7 @@ namespace DAO
                 throw ex;
             }
         }
+
         public void ThemHoaDonChiTiet(HoaDonChiTiet hoaDonChiTiet, DataTable dataTable)
         {
             DataRow row = dataTable.NewRow();

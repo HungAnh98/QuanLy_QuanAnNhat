@@ -63,6 +63,8 @@ namespace QuanLyQuanAnNhat
                     bt.BackColor = Color.Green;
                 else
                     bt.BackColor = Color.Red;
+
+
             }
 
         }
