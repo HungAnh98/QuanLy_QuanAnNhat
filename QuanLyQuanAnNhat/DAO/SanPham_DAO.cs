@@ -11,7 +11,7 @@ namespace DAO
 {
     public class SanPham_DAO : Dataprovider
     {
-        // possible
+        // done testing
         public DataTable GetTableProduct()
         {
             try
@@ -35,11 +35,10 @@ namespace DAO
             row["GiaBan"] = sp.GiaBan;
             tb.Rows.Add(row);
         }
-
-
         public void Del(int row, DataTable dt)
         {
-            dt.Rows[row].Delete();
+            if(row >=0 && row <= dt.Rows.Count)
+                dt.Rows[row].Delete();
         }
         public void Edit(SanPham sp, DataTable dt, int index)
         {
