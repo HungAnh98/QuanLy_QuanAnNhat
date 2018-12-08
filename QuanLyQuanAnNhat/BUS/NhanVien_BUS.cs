@@ -31,9 +31,22 @@ namespace BUS
             em.addEml(nv, dt);
         }
 
-        public void Del(int row, DataTable dt)
+        public int Del(int row, DataTable dt)
         {
-            em.Del(row, dt);
+            try
+            {
+
+                int number = em.Del(row, dt);
+                if (number > 0)
+                    return number;
+                else
+                    return -1;
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
         }
 
         public void editEm(NhanVien nv, DataTable dt, int index)

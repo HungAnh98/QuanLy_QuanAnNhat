@@ -35,5 +35,20 @@ namespace DAO
             return GetDataSet("Account").Tables[0];
         }
 
+
+        public bool Login(Account acc)
+        {
+            DataTable dt = GetTableAccount();
+
+            foreach(DataRow row in dt.Rows)
+            {
+                if(row[0].ToString()==acc.UserName.ToLower() && row[1].ToString()==acc.Password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }
