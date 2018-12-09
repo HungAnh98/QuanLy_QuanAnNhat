@@ -16,7 +16,8 @@ namespace BUS
         {
             try
             {
-                return new Account_DAO().CheckInfor(acc);
+                //    return new Account_DAO().CheckInfor(acc);
+                return new Account_DAO().Login(acc);
             }
             catch (SqlException ex)
             {

@@ -88,15 +88,27 @@ namespace QuanLyQuanAnNhat
                 {
                     try
                     {
-                        product.DelProduct_Bus(row, dt);
+                        int number = product.DelProduct_Bus(row, dt);
+                        if (number > 0)
+                        {
+                            MessageBox.Show("Xóa thành công");
+                            dt = product.GetThongTinMenu();
+                        }
+                        else
+                            MessageBox.Show("Không xóa được");
                     }
                     catch (SqlException)
                     {
                         MessageBox.Show("Không thể xóa món ăn này vì món ăn này đã xuất hiện trong một số hóa đơn");
                     }
-                    dgvSanPham.ClearSelection();
-                    clear();
-                    dgvSanPham.DataSource = dt;
+                    finally
+                    {
+
+                        dgvSanPham.ClearSelection();
+                        clear();
+
+                        dgvSanPham.DataSource = dt; 
+                    }
                 }
             }
             

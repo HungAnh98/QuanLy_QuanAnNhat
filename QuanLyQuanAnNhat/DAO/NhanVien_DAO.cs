@@ -47,13 +47,29 @@ namespace DAO
         }
 
         //done
-        public void Del(int row, DataTable dt)
+        public int Del(int row, DataTable dt)
         {
-            if (row >= 0 && row <= dt.Rows.Count)
+            //if (row >= 0 && row <= dt.Rows.Count)
+            ////{
+            ////    dt.Rows[row].Delete();
+            ////    Save(dt, "NhanVien");
+            //}
+            string manv = dt.Rows[row][0].ToString();
+            string sql = "DELETE FROM NhanVien WHERE NhanVien.MaNV ='" + manv + "'";
+            try
             {
-                dt.Rows[row].Delete();
-                Save(dt, "NhanVien");
+
+                int number = MyExecuteNonQuery(sql);
+                if (number > 0)
+                    return number;
+                else return -1;
             }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+
         }
 
         //done
