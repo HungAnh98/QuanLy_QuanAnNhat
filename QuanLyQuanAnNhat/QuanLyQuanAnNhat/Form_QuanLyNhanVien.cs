@@ -43,6 +43,8 @@ namespace QuanLyQuanAnNhat
             cbGioiTinh.Text = null;
             txtTenNV.Focus();
             dateTimePicker1.Value = DateTime.Parse("1/1/1990");
+            txtDiaChi.Text = "";
+
         }
         private NhanVien getInfo()
         {
@@ -126,14 +128,27 @@ namespace QuanLyQuanAnNhat
                     {
                         try
                         {
-                            pr.Del(row, dt);
+
+                            int number = pr.Del(row, dt);
+                            if (number > 0)
+                            {
+                                MessageBox.Show("Xóa thành công");
+                                dt = pr.getEmployeeTable();
+                            }
+                            else
+                                MessageBox.Show("Không xóa được");
                         }
                         catch (SqlException)
                         {
                             MessageBox.Show("Không thể xóa nhân viên này nhân viên này có liên quan đến cơ sở dữ liệu khác");
                         }
-                        clear();
-                        dgvNhanVien.DataSource = dt;
+                        finally
+                        {
+                            dgvNhanVien.ClearSelection();
+                            clear();
+                            dgvNhanVien.DataSource = dt;
+
+                        }
                     }
                 
             }

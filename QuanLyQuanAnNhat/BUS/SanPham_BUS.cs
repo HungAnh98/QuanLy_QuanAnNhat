@@ -39,9 +39,21 @@ namespace BUS
             new SanPham_DAO().AddProduct(sp, dt);
         }
 
-        public void DelProduct_Bus(int row, DataTable dt)
+        public int DelProduct_Bus(int row, DataTable dt)
         {
-            product.Del(row, dt);
+            try
+            {
+
+                int number = product.Del(row, dt);
+                if (number > 0)
+                    return number;
+                else return -1;
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
         }
 
         public void Edit_Bus(SanPham sp, DataTable dt, int index)
