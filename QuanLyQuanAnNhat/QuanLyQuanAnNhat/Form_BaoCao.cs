@@ -77,5 +77,10 @@ namespace QuanLyQuanAnNhat
             }
 
         }
+
+        private void cbxNhanVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

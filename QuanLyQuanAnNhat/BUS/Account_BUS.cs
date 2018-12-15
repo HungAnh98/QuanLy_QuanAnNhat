@@ -12,17 +12,18 @@ namespace BUS
 {
     public class Account_BUS
     {
-        public bool login(Account acc)
+        public bool Login(Account acc)
         {
-            try
+            DataTable dt = GetTableAccount();
+
+            foreach (DataRow row in dt.Rows)
             {
-                //    return new Account_DAO().CheckInfor(acc);
-                return new Account_DAO().Login(acc);
+                if (row[0].ToString().ToLower() == acc.UserName.ToLower() && row[1].ToString() == acc.Password)
+                {
+                    return true;
+                }
             }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
+            return false;
         }
         public DataTable GetTableAccount()
         {
