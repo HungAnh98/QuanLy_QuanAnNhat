@@ -28,6 +28,13 @@ namespace DAO
                 return true;
             else
                 return false;
+            //DataTable tb = GetTableAccount();
+            //foreach(DataRow row in tb.Rows )
+            //{
+            //    if (account.UserName == row["UserName"].ToString() && account.Password == row["Password"].ToString())
+            //        return true;
+            //}
+            //return false;
         }
 
         public DataTable GetTableAccount()

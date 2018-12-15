@@ -34,7 +34,6 @@ namespace DAO
             dataTable.Rows.Add(row);
         }
 
-
         public void CapNhatTinhTrangHoaDon(HoaDon hoaDon, DataTable dataTable)
         {
             foreach (DataRow dr in dataTable.Rows)
@@ -45,7 +44,6 @@ namespace DAO
                 }
             }
         }
-
         //done
         public void SaveHoaDon(DataTable dataTable)
         {
